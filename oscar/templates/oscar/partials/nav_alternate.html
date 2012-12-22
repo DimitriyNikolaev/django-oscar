@@ -31,11 +31,11 @@
 						<li class="divider"></li>
                     {% for category in categories %}
                         <li class="dropdown-submenu">
-                            <a tabindex="-1" href="{{ category.0.get_absolute_url }}">{{ category.0.name }} {% if category.1 %}{% endif %}</a>
+                            <a tabindex="-1" href="{{ category.0.get_absolute_url }}">{{ category.0.displayname }} {% if category.1 %}{% endif %}</a>
                         {% if category.1 %}
                             <ul class="dropdown-menu">
                             {% for subcategory in category.1 %}
-                                <li><a tabindex="-1" href="{{ subcategory.0.get_absolute_url }}"> {{ subcategory.0.name }}</a></li>
+                                <li><a tabindex="-1" href="{{ subcategory.0.get_absolute_url }}"> {{ subcategory.0.displayname }}</a></li>
                             {% endfor %}
                             </ul>
                         {% endif %}

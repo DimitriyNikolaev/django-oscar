@@ -129,7 +129,7 @@ class ProductCategoryView(ListView):
         categories = self.get_categories()
         context['categories'] = categories
         context['category'] = categories[-1]
-        context['summary'] = categories[-1].name
+        context['summary'] = categories[-1].displayname
         return context
 
     def get_queryset(self):

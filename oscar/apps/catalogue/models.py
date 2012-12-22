@@ -2,15 +2,14 @@
 Vanilla product models
 """
 from oscar.apps.catalogue.abstract_models import *
-
+from django.db import models
 
 class ProductClass(AbstractProductClass):
     pass
 
 
 class Category(AbstractCategory):
-    pass
-
+    displayname = models.CharField('DisplayName', max_length=255, db_index=True)
 
 class ProductCategory(AbstractProductCategory):
     pass

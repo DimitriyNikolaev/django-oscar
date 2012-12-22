@@ -10,6 +10,7 @@
 		{% endthumbnail %}
 		{% endwith %}
     </div>
+    {% comment %}
     {% block product_review %}
         {% with reviews=product.reviews.all %}
             {% if reviews %}
@@ -23,6 +24,7 @@
             {% endif %}
         {% endwith %}
     {% endblock product_review %}
+    {% endcomment %}
     
     <h3><a href="{{ product.get_absolute_url }}">{{ product.get_title|truncatewords:5 }}</a></h3>
     

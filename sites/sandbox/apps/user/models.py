@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.translation import ugettext_lazy as _
 
 class Profile(models.Model):
     """
@@ -8,8 +8,8 @@ class Profile(models.Model):
     user = models.OneToOneField('auth.User', related_name="profile")
     MALE, FEMALE = 'M', 'F'
     choices = (
-        (MALE, 'Male'),
-        (FEMALE, 'Female'))
+        (MALE, _('Male')),
+        (FEMALE, _('Female')))
     gender = models.CharField(max_length=1, choices=choices,
-                              verbose_name='Gender')
-    age = models.PositiveIntegerField(verbose_name='Age')
+        verbose_name=_('Gender'))
+    age = models.PositiveIntegerField(verbose_name=_('Age'))

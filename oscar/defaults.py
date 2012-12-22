@@ -1,4 +1,4 @@
-OSCAR_SHOP_NAME = 'Oscar'
+OSCAR_SHOP_NAME = 'EToys.Spb'
 OSCAR_SHOP_TAGLINE = 'Domain-driven e-Commerce for Django'
 
 # Basket settings
@@ -7,7 +7,7 @@ OSCAR_BASKET_COOKIE_OPEN = 'oscar_open_basket'
 OSCAR_BASKET_COOKIE_SAVED = 'oscar_saved_basket'
 
 # Currency
-OSCAR_DEFAULT_CURRENCY = 'GBP'
+OSCAR_DEFAULT_CURRENCY = 'RUB'
 
 # Max number of products to keep on the user's history
 OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
@@ -25,7 +25,7 @@ OSCAR_UPLOAD_ROOT = '/tmp'
 OSCAR_SEARCH_SUGGEST_LIMIT = 10
 
 # Checkout
-OSCAR_ALLOW_ANON_CHECKOUT = False
+OSCAR_ALLOW_ANON_CHECKOUT = True
 
 # Partners
 OSCAR_PARTNER_WRAPPERS = {}
@@ -38,10 +38,10 @@ OSCAR_PROMOTION_MERCHANDISING_BLOCK_TYPES = (
     (LIST, "Horizontal list"),
     (TABBED_BLOCK, "Tabbed block"),
     (SINGLE_PRODUCT, "Single product"),
-)
+    )
 
 # Reviews
-OSCAR_ALLOW_ANON_REVIEWS = True
+OSCAR_ALLOW_ANON_REVIEWS = False
 OSCAR_MODERATE_REVIEWS = False
 
 # This enables sending alert notifications/emails
@@ -56,8 +56,8 @@ OSCAR_MODERATE_REVIEWS = False
 OSCAR_EAGER_ALERTS = True
 
 # Registration
-OSCAR_SEND_REGISTRATION_EMAIL = True
-OSCAR_FROM_EMAIL = 'oscar@example.com'
+OSCAR_SEND_REGISTRATION_EMAIL = False
+OSCAR_FROM_EMAIL = 'constructor3@yandex.ru'
 
 # Offers
 OSCAR_OFFER_BLACKLIST_PRODUCT = None

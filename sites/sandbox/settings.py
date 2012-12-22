@@ -14,29 +14,39 @@ SEND_BROKEN_LINK_EMAILS = True
 
 ADMINS = (
     ('David Winterbottom', 'david.winterbottom@tangentlabs.co.uk'),
-)
+    )
 EMAIL_SUBJECT_PREFIX = '[Oscar sandbox] '
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MANAGERS = ADMINS
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(os.path.dirname(__file__), 'db.sqlite'),
+#        'USER': '',
+#        'PASSWORD': '',
+#        'HOST': '',
+#        'PORT': '',
+#    }
+#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(os.path.dirname(__file__), 'db.sqlite'),
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'etoys',
+        'USER': 'webuser',
+        'PASSWORD': 'sps67',
+        'HOST': '127.0.0.1',
         'PORT': '',
-    }
+        }
 }
 
 CACHES = {
     'default': {
         'BACKEND':
-        'django.core.cache.backends.memcached.MemcachedCache',
+            'django.core.cache.backends.memcached.MemcachedCache',
         'LOCATION': '127.0.0.1:11211',
-    }
+        }
 }
 
 # Local time zone for this installation. Choices can be found here:
@@ -50,12 +60,13 @@ TIME_ZONE = 'Europe/London'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'#'en-us'
 
 LANGUAGES = (
     ('de', 'German'),
     ('fr', 'French'),
-)
+    ('ru', 'Russian')
+    )
 ROSETTA_STORAGE_CLASS = 'rosetta.storage.SessionRosettaStorage'
 ROSETTA_ENABLE_TRANSLATION_SUGGESTIONS = True
 
@@ -94,8 +105,8 @@ SECRET_KEY = '$)a7n&o80u!6y5t-+jrd3)3!%vh&shg$wqpjpxc!ar&p#!)n1a'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
-)
+    #     'django.template.loaders.eggs.Loader',
+    )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
@@ -111,7 +122,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'oscar.apps.checkout.context_processors.checkout',
     'oscar.core.context_processors.metadata',
     'oscar.apps.customer.notifications.context_processors.notifications',
-)
+    )
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -124,7 +135,7 @@ MIDDLEWARE_CLASSES = (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'oscar.apps.basket.middleware.BasketMiddleware',
     'oscar.middleware.profiling.ProfileMiddleware',
-)
+    )
 
 INTERNAL_IPS = ('127.0.0.1',)
 
@@ -134,7 +145,7 @@ from oscar import OSCAR_MAIN_TEMPLATE_DIR
 TEMPLATE_DIRS = (
     location('templates'),
     OSCAR_MAIN_TEMPLATE_DIR,
-)
+    )
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -147,82 +158,71 @@ LOGGING = {
     'formatters': {
         'verbose': {
             'format': '%(levelname)s %(asctime)s %(module)s %(message)s',
-        },
+            },
         'simple': {
             'format': '[%(asctime)s] %(message)s'
         },
-    },
+        },
     'handlers': {
         'null': {
             'level': 'DEBUG',
             'class': 'django.utils.log.NullHandler',
-        },
+            },
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'verbose'
         },
         'checkout_file': {
-             'level': 'INFO',
-             'class': 'oscar.core.logging.handlers.EnvFileHandler',
-             'filename': 'checkout.log',
-             'formatter': 'verbose'
+            'level': 'INFO',
+            'class': 'oscar.core.logging.handlers.EnvFileHandler',
+            'filename': 'checkout.log',
+            'formatter': 'verbose'
         },
         'gateway_file': {
-             'level': 'INFO',
-             'class': 'oscar.core.logging.handlers.EnvFileHandler',
-             'filename': 'gateway.log',
-             'formatter': 'simple'
+            'level': 'INFO',
+            'class': 'oscar.core.logging.handlers.EnvFileHandler',
+            'filename': 'gateway.log',
+            'formatter': 'simple'
         },
         'error_file': {
-             'level': 'INFO',
-             'class': 'oscar.core.logging.handlers.EnvFileHandler',
-             'filename': 'errors.log',
-             'formatter': 'verbose'
-        },
-        'sorl_file': {
-             'level': 'INFO',
-             'class': 'oscar.core.logging.handlers.EnvFileHandler',
-             'filename': 'sorl.log',
-             'formatter': 'verbose'
+            'level': 'INFO',
+            'class': 'oscar.core.logging.handlers.EnvFileHandler',
+            'filename': 'errors.log',
+            'formatter': 'verbose'
         },
         'mail_admins': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler',
+            },
         },
-    },
     'loggers': {
         'django': {
             'handlers': ['null'],
             'propagate': True,
             'level': 'INFO',
-        },
+            },
         'django.request': {
             'handlers': ['mail_admins', 'error_file'],
             'level': 'ERROR',
             'propagate': False,
-        },
+            },
         'oscar.checkout': {
             'handlers': ['console', 'checkout_file'],
             'propagate': True,
             'level': 'INFO',
-        },
+            },
         'gateway': {
             'handlers': ['gateway_file'],
             'propagate': True,
             'level': 'INFO',
-        },
-        'sorl.thumbnail': {
-            'handlers': ['sorl_file'],
-            'propagate': True,
-            'level': 'INFO',
-        },
+            },
         'django.db.backends': {
             'handlers': ['null'],
             'propagate': False,
             'level': 'DEBUG',
-        },
-    }
+            },
+        }
 }
 
 
@@ -241,6 +241,8 @@ INSTALLED_APPS = [
     'rosetta',  # For i18n testing
     'apps.user',  # For profile testing
     'apps.gateway',  # For allowing dashboard access
+
+
 ]
 from oscar import get_core_apps
 INSTALLED_APPS = INSTALLED_APPS + get_core_apps()
@@ -248,7 +250,7 @@ INSTALLED_APPS = INSTALLED_APPS + get_core_apps()
 AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.Emailbackend',
     'django.contrib.auth.backends.ModelBackend',
-)
+    )
 
 LOGIN_REDIRECT_URL = '/accounts/'
 APPEND_SLASH = True
@@ -258,8 +260,8 @@ HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
         'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
-    },
-}
+        },
+    }
 
 # Allow internal IPs to see the debug toolbar.  This is just for Tangent's QA
 # department to be able to create better issues when something goes wrong.
@@ -285,12 +287,14 @@ OSCAR_ORDER_STATUS_PIPELINE = {
     'Pending': ('Being processed', 'Cancelled',),
     'Being processed': ('Processed', 'Cancelled',),
     'Cancelled': (),
-}
+    }
 
 OSCAR_SHOP_NAME = 'Oscar Sandbox'
 OSCAR_SHOP_TAGLINE = 'e-Commerce for Django'
 
 GOOGLE_ANALYTICS_ID = 'UA-XXXXX-Y'
+
+
 
 LOG_ROOT = location('logs')
 # Ensure log root exists

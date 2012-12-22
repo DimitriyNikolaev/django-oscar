@@ -22,11 +22,11 @@
 	{% else %}
 		{% for category in category.get_ancestors|slice:":-1" %}
 		<li>
-			<a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+			<a href="{{ category.get_absolute_url }}">{{ category.displayname }}</a>
 			<span class="divider">/</span>
 		</li>
 		{% endfor %}
-		<li class="active">{{ category.name }}</li>
+		<li class="active">{{ category.displayname }}</li>
 	{% endif %}
 </ul>
 {% endblock breadcrumbs %}
@@ -35,13 +35,13 @@
     <div class="side_categories" style="padding: 8px 0;">
         {% if categories %}
     	<ul class="nav nav-list">
-			<li class="nav-header">{% trans "Browse categories" %}</li>
+			<li class="nav-header">{% trans "Browse Categories" %}</li>
     	    {% for category in categories %}
-            <li><a href="{{ category.0.get_absolute_url }}">{{ category.0.name }}</a>
+            <li><a href="{{ category.0.get_absolute_url }}">{{ category.0.displayname }}</a>
             	{% if category.1 %}
             	<ul>
             		{% for subcategory in category.1 %}
-            		<li><a href="{{ subcategory.0.get_absolute_url }}">{{ subcategory.0.name }}</a>
+            		<li><a href="{{ subcategory.0.get_absolute_url }}">{{ subcategory.0.displayname }}</a>
             		{% endfor %}
             	</ul>
 				{% endif %}
