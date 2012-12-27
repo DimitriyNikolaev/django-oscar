@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 from oscar.apps.shipping.methods import (
-    Free, NoShippingRequired, OfferDiscount)
+    Free, CurierDelivery, Pickup, OfferDiscount)
 
 
 class Repository(object):
@@ -21,8 +21,11 @@ class Repository(object):
         this behaviour can easily be overridden by subclassing this class
         and overriding this method.
         """
-        methods = [Free()]
+        methods = [Pickup(),CurierDelivery(200)]
         return self.prime_methods(basket, methods)
+
+    def get_methods_required_address(self, user, basket, shipping_addr=None, **kwargs):
+        return [method.code for method in self.get_shipping_methods(user,basket,shipping_addr) if method.required_address ]
 
     def get_default_shipping_method(self, user, basket, shipping_addr=None,
                                     **kwargs):
@@ -60,7 +63,7 @@ class Repository(object):
         """
         Return the appropriate Method object for the given code
         """
-        known_methods = [Free, NoShippingRequired]
+        known_methods = [Free, Pickup, CurierDelivery]
         for klass in known_methods:
             if code == getattr(klass, 'code'):
                 return self.prime_method(basket, klass())

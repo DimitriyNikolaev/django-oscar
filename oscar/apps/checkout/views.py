@@ -78,7 +78,8 @@ class IndexView(CheckoutSessionMixin, FormView):
         return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):
-        return reverse('checkout:shipping-address')
+        #return reverse('checkout:shipping-address')
+        return reverse('checkout:shipping-method')
 
 
 # ================
@@ -118,6 +119,11 @@ class ShippingAddressView(CheckoutSessionMixin, FormView):
         if not request.basket.is_shipping_required():
             messages.info(request, _("Your basket does not require a shipping address to be submitted"))
             return HttpResponseRedirect(self.get_success_url())
+
+        if request.basket.is_shipping_required() and not self.checkout_session.is_shipping_method_set():
+            messages.error(request, _("Please choose a shipping method"))
+            return HttpResponseRedirect(reverse('checkout:shipping-method'))
+
 
         return super(ShippingAddressView, self).get(request, *args, **kwargs)
 
@@ -248,16 +254,17 @@ class ShippingMethodView(CheckoutSessionMixin, TemplateView):
         if request.basket.is_empty:
             messages.error(request, _("You need to add some items to your basket to checkout"))
             return HttpResponseRedirect(reverse('basket:summary'))
+        shipping_required = request.basket.is_shipping_required()
 
         # Check that shipping is required at all
-        if not request.basket.is_shipping_required():
+        if not shipping_required:
             self.checkout_session.use_shipping_method(NoShippingRequired().code)
             return self.get_success_response()
 
         # Check that shipping address has been completed
-        if not self.checkout_session.is_shipping_address_set():
-            messages.error(request, _("Please choose a shipping address"))
-            return HttpResponseRedirect(reverse('checkout:shipping-address'))
+        #if not self.checkout_session.is_shipping_address_set():
+        #    messages.error(request, _("Please choose a shipping address"))
+        #    return HttpResponseRedirect(reverse('checkout:shipping-address'))
 
         # Save shipping methods as instance var as we need them both here
         # and when setting the context vars.
@@ -290,6 +297,8 @@ class ShippingMethodView(CheckoutSessionMixin, TemplateView):
         # fit this system.
         return Repository().get_shipping_methods(self.request.user, self.request.basket,
                                                  self.get_shipping_address())
+    def get_methods_required_address(self):
+        return Repository().get_methods_required_address(self.request.user, self.request.basket, self.get_shipping_address())
 
     def post(self, request, *args, **kwargs):
         # Need to check that this code is valid for this user
@@ -305,10 +314,13 @@ class ShippingMethodView(CheckoutSessionMixin, TemplateView):
         # Save the code for the chosen shipping method in the session
         # and continue to the next step.
         self.checkout_session.use_shipping_method(method_code)
-        return self.get_success_response()
+        return self.get_success_response(method_code)
 
-    def get_success_response(self):
-        return HttpResponseRedirect(reverse('checkout:payment-method'))
+    def get_success_response(self, method_code):
+        if method_code not in self.get_methods_required_address():
+            return HttpResponseRedirect(reverse('checkout:preview'))
+        else:
+            return HttpResponseRedirect(reverse('checkout:shipping-address'))
 
 
 # ==============
@@ -332,20 +344,22 @@ class PaymentMethodView(CheckoutSessionMixin, TemplateView):
 
         shipping_required = request.basket.is_shipping_required()
 
-        # Check that shipping address has been completed
-        if shipping_required and not self.checkout_session.is_shipping_address_set():
-            messages.error(request, _("Please choose a shipping address"))
-            return HttpResponseRedirect(reverse('checkout:shipping-address'))
-
         # Check that shipping method has been set
         if shipping_required and not self.checkout_session.is_shipping_method_set():
             messages.error(request, _("Please choose a shipping method"))
             return HttpResponseRedirect(reverse('checkout:shipping-method'))
 
+        # Check that shipping address has been completed
+        if shipping_required and (not self.checkout_session.is_shipping_address_set() and self.get_shipping_method().code in self.get_methods_required_address()):
+            messages.error(request, _("Please choose a shipping address"))
+            return HttpResponseRedirect(reverse('checkout:shipping-address'))
+
         return self.get_success_response()
 
     def get_success_response(self):
         return HttpResponseRedirect(reverse('checkout:payment-details'))
+    def get_methods_required_address(self):
+        return Repository().get_methods_required_address(self.request.user, self.request.basket, self.get_shipping_address())
 
 
 # ================
@@ -377,15 +391,17 @@ class PaymentDetailsView(OrderPlacementMixin, TemplateView):
             return HttpResponseRedirect(reverse('basket:summary'))
 
         shipping_required = self.request.basket.is_shipping_required()
-        # Check that shipping address has been completed
-        if shipping_required and not self.checkout_session.is_shipping_address_set():
-            messages.error(self.request, _("Please choose a shipping address"))
-            return HttpResponseRedirect(reverse('checkout:shipping-address'))
+
         # Check that shipping method has been set
         if shipping_required and not self.checkout_session.is_shipping_method_set():
             messages.error(self.request, _("Please choose a shipping method"))
             return HttpResponseRedirect(reverse('checkout:shipping-method'))
-
+        # Check that shipping address has been completed
+        if shipping_required and (not self.checkout_session.is_shipping_address_set() and self.get_shipping_method().code in self.get_methods_required_address()):
+            messages.error(self.request, _("Please choose a shipping address"))
+            return HttpResponseRedirect(reverse('checkout:shipping-address'))
+    def get_methods_required_address(self):
+        return Repository().get_methods_required_address(self.request.user, self.request.basket, self.get_shipping_address())
     def get(self, request, *args, **kwargs):
         error_response = self.get_error_response()
         if error_response:

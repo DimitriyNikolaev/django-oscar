@@ -67,9 +67,9 @@ class ProductSearchForm(forms.Form):
 
 class StockRecordForm(forms.ModelForm):
     partner = forms.ModelChoiceField(queryset=Partner.objects.all(),
-                                    required=False,
+                                    required=True,
                                     label=_("Partner"))
-    partner_sku = forms.CharField(required=False,
+    partner_sku = forms.CharField(required=True,
                                   label=_("Partner SKU"))
 
     def __init__(self, product_class, *args, **kwargs):

@@ -11,6 +11,7 @@ class Free(ShippingMethod):
     """
     code = 'free-shipping'
     name = _('Free shipping')
+    required_address = True
 
     def basket_charge_incl_tax(self):
         return D('0.00')
@@ -22,12 +23,16 @@ class Free(ShippingMethod):
 class NoShippingRequired(Free):
     code = 'no-shipping-required'
     name = _('No shipping required')
-
+    required_address = False
+class Pickup(Free):
+    code = 'pickup'
+    name = _('Pickup')
+    required_address = False
 
 class FixedPrice(ShippingMethod):
     code = 'fixed-price-shipping'
     name = _('Fixed price shipping')
-
+    required_address = True
     def __init__(self, charge_incl_tax, charge_excl_tax=None):
         self.charge_incl_tax = charge_incl_tax
         if not charge_excl_tax:
@@ -40,6 +45,22 @@ class FixedPrice(ShippingMethod):
     def basket_charge_excl_tax(self):
         return self.charge_excl_tax
 
+class CurierDelivery(ShippingMethod):
+    code = 'curier-delivery'
+    name = _('Curier Delivery')
+    required_address = True
+
+    def __init__(self, charge_incl_tax = 200, charge_excl_tax=None):
+        self.charge_incl_tax = charge_incl_tax
+        if not charge_excl_tax:
+            charge_excl_tax = charge_incl_tax
+        self.charge_excl_tax = charge_excl_tax
+
+    def basket_charge_incl_tax(self):
+        return self.charge_incl_tax
+
+    def basket_charge_excl_tax(self):
+        return self.charge_excl_tax
 
 class OfferDiscount(ShippingMethod):
     """

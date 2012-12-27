@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-22 00:36+0400\n"
+"POT-Creation-Date: 2012-12-26 15:56+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -484,7 +484,7 @@ msgstr "Статус"
 
 #: apps/basket/abstract_models.py:40 apps/dashboard/vouchers/app.py:9
 #: apps/voucher/abstract_models.py:55
-#: templates/oscar/basket/partials/basket_content.html:124
+#: templates/oscar/basket/partials/basket_content.html:130
 #: templates/oscar/dashboard/index.html:160
 #: templates/oscar/dashboard/vouchers/voucher_delete.html:20
 #: templates/oscar/dashboard/vouchers/voucher_detail.html:16
@@ -901,13 +901,13 @@ msgstr ""
 
 #: apps/catalogue/abstract_models.py:271 apps/dashboard/catalogue/forms.py:64
 #: apps/dashboard/orders/forms.py:62 apps/order/abstract_models.py:287
-#: templates/oscar/catalogue/detail.html:90
+#: templates/oscar/catalogue/detail.html:91
 #: templates/oscar/dashboard/catalogue/product_list.html:64
 #: templates/oscar/dashboard/orders/line_detail.html:50
 #: templates/oscar/dashboard/orders/order_detail.html:97
 #: templates/oscar/dashboard/ranges/range_product_list.html:95
 msgid "UPC"
-msgstr "Штрих-код"
+msgstr "Артикул"
 
 #: apps/catalogue/abstract_models.py:273
 msgid ""
@@ -1782,7 +1782,7 @@ msgstr ""
 #: templates/oscar/dashboard/orders/line_detail.html:66
 #: templates/oscar/dashboard/ranges/range_product_list.html:97
 msgid "Partner"
-msgstr "Партнер"
+msgstr "Склад|Магазин"
 
 #: apps/dashboard/catalogue/forms.py:73 apps/dashboard/orders/forms.py:63
 #: apps/order/abstract_models.py:284 apps/partner/abstract_models.py:89
@@ -1790,7 +1790,7 @@ msgstr "Партнер"
 #: templates/oscar/dashboard/orders/line_detail.html:69
 #: templates/oscar/dashboard/ranges/range_product_list.html:98
 msgid "Partner SKU"
-msgstr ""
+msgstr "Атртикул склада"
 
 #: apps/dashboard/catalogue/forms.py:204
 msgid "Parent products must have a title"
@@ -2037,7 +2037,6 @@ msgid "Date to"
 msgstr "по"
 
 #: apps/dashboard/orders/forms.py:71 apps/voucher/reports.py:19
-#: templates/oscar/basket/partials/basket_content.html:87
 #: templates/oscar/dashboard/orders/order_detail.html:388
 #: templates/oscar/dashboard/reports/partials/voucher_report.html:9
 msgid "Voucher code"
@@ -3285,7 +3284,7 @@ msgid "Price (inc. tax)"
 msgstr "Цена с НДС"
 
 #: apps/order/abstract_models.py:298 apps/order/abstract_models.py:506
-#: apps/partner/abstract_models.py:98 templates/oscar/catalogue/detail.html:98
+#: apps/partner/abstract_models.py:98 templates/oscar/catalogue/detail.html:99
 msgid "Price (excl. tax)"
 msgstr "Цена без НДС"
 
@@ -3967,7 +3966,7 @@ msgstr ""
 #: templates/oscar/checkout/shipping_methods.html:23
 #: templates/oscar/dashboard/orders/order_detail.html:295
 msgid "Method"
-msgstr ""
+msgstr "Метод"
 
 #: apps/promotions/models.py:281
 msgid "Number of Products"
@@ -4024,9 +4023,17 @@ msgstr "Бесплатная доставка"
 msgid "No shipping required"
 msgstr ""
 
-#: apps/shipping/methods.py:29
+#: apps/shipping/methods.py:27
+msgid "Pickup"
+msgstr "Самовывоз"
+
+#: apps/shipping/methods.py:31
 msgid "Fixed price shipping"
 msgstr ""
+
+#: apps/shipping/methods.py:47
+msgid "Curier Delivery"
+msgstr "Курьерская доставка"
 
 #: apps/shipping/models.py:23 templates/oscar/customer/order.html:51
 msgid "Shipping Method"
@@ -4282,7 +4289,6 @@ msgid "Items to buy now"
 msgstr "Выбранные товары"
 
 #: templates/oscar/basket/partials/basket_content.html:28
-#: templates/oscar/basket/partials/basket_content.html:231
 #: templates/oscar/checkout/checkout.html:91
 #: templates/oscar/dashboard/catalogue/product_update.html:145
 #: templates/oscar/dashboard/ranges/range_product_list.html:99
@@ -4296,86 +4302,36 @@ msgid "Update"
 msgstr "Обновить"
 
 #: templates/oscar/basket/partials/basket_content.html:55
-#: templates/oscar/basket/partials/basket_content.html:133
-#: templates/oscar/basket/partials/basket_content.html:250
+#: templates/oscar/basket/partials/basket_content.html:139
 #: templates/oscar/dashboard/promotions/delete_pagepromotion.html:23
 #: templates/oscar/dashboard/promotions/page_detail.html:57
 #: templates/oscar/dashboard/ranges/range_product_list.html:115
 msgid "Remove"
 msgstr "Удалить"
 
-#: templates/oscar/basket/partials/basket_content.html:57
-msgid "Save for later"
-msgstr ""
-
-#: templates/oscar/basket/partials/basket_content.html:82
-msgid "Voucher/promo code"
-msgstr ""
-
-#: templates/oscar/basket/partials/basket_content.html:84
-msgid "I have a voucher code..."
-msgstr ""
-
-#: templates/oscar/basket/partials/basket_content.html:92
-msgid "Add voucher"
-msgstr ""
-
-#: templates/oscar/basket/partials/basket_content.html:93
-#: templates/oscar/checkout/user_address_delete.html:20
-#: templates/oscar/checkout/user_address_form.html:21
-#: templates/oscar/customer/address_delete.html:53
-#: templates/oscar/customer/address_form.html:52
-#: templates/oscar/customer/change_password_form.html:38
-#: templates/oscar/customer/profile_form.html:46
-#: templates/oscar/dashboard/catalogue/category_delete.html:40
-#: templates/oscar/dashboard/comms/detail.html:106
-#: templates/oscar/dashboard/offers/offer_delete.html:43
-#: templates/oscar/dashboard/offers/offer_detail.html:58
-#: templates/oscar/dashboard/offers/preview.html:22
-#: templates/oscar/dashboard/offers/step_form.html:47
-#: templates/oscar/dashboard/orders/shippingaddress_form.html:39
-#: templates/oscar/dashboard/pages/delete.html:43
-#: templates/oscar/dashboard/pages/update.html:70
-#: templates/oscar/dashboard/promotions/delete.html:43
-#: templates/oscar/dashboard/promotions/delete_pagepromotion.html:24
-#: templates/oscar/dashboard/promotions/form.html:41
-#: templates/oscar/dashboard/ranges/range_delete.html:42
-#: templates/oscar/dashboard/ranges/range_form.html:45
-#: templates/oscar/dashboard/reviews/review_delete.html:54
-#: templates/oscar/dashboard/reviews/review_update.html:84
-#: templates/oscar/dashboard/users/alerts/delete.html:41
-#: templates/oscar/dashboard/users/alerts/update.html:38
-#: templates/oscar/dashboard/vouchers/voucher_delete.html:52
-#: templates/oscar/dashboard/vouchers/voucher_detail.html:91
-#: templates/oscar/dashboard/vouchers/voucher_form.html:42
-#: templates/oscar/partials/form.html:7
-#: templates/oscar/reviews/add_review.html:14
-msgid "cancel"
-msgstr "отменить"
-
-#: templates/oscar/basket/partials/basket_content.html:103
+#: templates/oscar/basket/partials/basket_content.html:109
 #: templates/oscar/customer/anon_order.html:85
 msgid "Totals"
 msgstr "Итого"
 
-#: templates/oscar/basket/partials/basket_content.html:111
+#: templates/oscar/basket/partials/basket_content.html:117
 msgid "Basket total (before discounts)"
 msgstr ""
 
-#: templates/oscar/basket/partials/basket_content.html:117
+#: templates/oscar/basket/partials/basket_content.html:123
 msgid "Special offer:"
 msgstr ""
 
-#: templates/oscar/basket/partials/basket_content.html:141
+#: templates/oscar/basket/partials/basket_content.html:147
 msgid "Basket total (after discounts)"
 msgstr ""
 
-#: templates/oscar/basket/partials/basket_content.html:146
+#: templates/oscar/basket/partials/basket_content.html:152
 #: templates/oscar/checkout/thank_you.html:107
 msgid "Basket total"
 msgstr "На сумму"
 
-#: templates/oscar/basket/partials/basket_content.html:160
+#: templates/oscar/basket/partials/basket_content.html:166
 #: templates/oscar/checkout/checkout.html:29
 #: templates/oscar/checkout/thank_you.html:27
 #: templates/oscar/checkout/thank_you.html:113
@@ -4383,23 +4339,24 @@ msgstr "На сумму"
 msgid "Shipping"
 msgstr "Доставка"
 
-#: templates/oscar/basket/partials/basket_content.html:168
+#: templates/oscar/basket/partials/basket_content.html:174
 msgid "Shipping total (before discounts)"
 msgstr ""
 
-#: templates/oscar/basket/partials/basket_content.html:174
+#: templates/oscar/basket/partials/basket_content.html:180
 msgid "Special offer"
 msgstr ""
 
-#: templates/oscar/basket/partials/basket_content.html:180
+#: templates/oscar/basket/partials/basket_content.html:186
 msgid "Shipping total (after discounts)"
 msgstr ""
 
-#: templates/oscar/basket/partials/basket_content.html:188
+#: templates/oscar/basket/partials/basket_content.html:194
 msgid "Alternative shipping methods can be chosen during checkout"
 msgstr ""
+"Другие способы доставки могут быть выбраны в процессе оформления заказа"
 
-#: templates/oscar/basket/partials/basket_content.html:195
+#: templates/oscar/basket/partials/basket_content.html:201
 #: templates/oscar/checkout/thank_you.html:133
 #: templates/oscar/customer/anon_order.html:95
 #: templates/oscar/customer/order.html:102
@@ -4408,36 +4365,19 @@ msgstr ""
 msgid "Order total"
 msgstr "Сумма заказа"
 
-#: templates/oscar/basket/partials/basket_content.html:208
+#: templates/oscar/basket/partials/basket_content.html:214
 msgid "Proceed to checkout"
 msgstr "Продолжить оформление"
 
-#: templates/oscar/basket/partials/basket_content.html:214
+#: templates/oscar/basket/partials/basket_content.html:220
 #: templates/oscar/basket/partials/basket_quick.html:35
 msgid "Your basket is empty."
 msgstr "Ваша корзина пуста"
 
-#: templates/oscar/basket/partials/basket_content.html:215
+#: templates/oscar/basket/partials/basket_content.html:221
 #: templates/oscar/checkout/thank_you.html:149
 msgid "Continue shopping"
 msgstr ""
-
-#: templates/oscar/basket/partials/basket_content.html:222
-msgid "To buy later"
-msgstr ""
-
-#: templates/oscar/basket/partials/basket_content.html:226
-msgid "Your saved basket is empty."
-msgstr ""
-
-#: templates/oscar/basket/partials/basket_content.html:230
-#, fuzzy
-msgid "Items"
-msgstr "Позиции заказа"
-
-#: templates/oscar/basket/partials/basket_content.html:257
-msgid "Move to basket"
-msgstr "Переместить в крзину"
 
 #: templates/oscar/basket/partials/basket_quick.html:24
 msgid "Qty"
@@ -4489,8 +4429,8 @@ msgid "Home"
 msgstr ""
 
 #: templates/oscar/catalogue/browse.html:38
-#, fuzzy
-msgid "Browse categories"
+#: templates/oscar/search/results.html:28
+msgid "Browse Categories"
 msgstr "Каталог"
 
 #: templates/oscar/catalogue/browse.html:81
@@ -4504,34 +4444,27 @@ msgstr "Товаров не найдено"
 msgid "Edit this product"
 msgstr "Редактировать этот товар"
 
-#: templates/oscar/catalogue/detail.html:64
-#: templates/oscar/catalogue/detail.html:136
-#: templates/oscar/customer/anon_order.html:72
-#: templates/oscar/customer/order.html:82
-msgid "Write a review"
-msgstr "Написать отзыв"
-
-#: templates/oscar/catalogue/detail.html:77
+#: templates/oscar/catalogue/detail.html:78
 msgid "Product Description"
 msgstr "Описание товара"
 
-#: templates/oscar/catalogue/detail.html:85
+#: templates/oscar/catalogue/detail.html:86
 #, fuzzy
 msgid "Product Information"
 msgstr "Информация о товаре"
 
-#: templates/oscar/catalogue/detail.html:94
+#: templates/oscar/catalogue/detail.html:95
 #: templates/oscar/dashboard/catalogue/product_list.html:66
 #: templates/oscar/dashboard/catalogue/product_update.html:72
 #: templates/oscar/dashboard/orders/line_detail.html:47
 msgid "Product class"
 msgstr "Класс товара"
 
-#: templates/oscar/catalogue/detail.html:101
+#: templates/oscar/catalogue/detail.html:102
 msgid "Price (incl. tax)"
 msgstr "Цена с НДС"
 
-#: templates/oscar/catalogue/detail.html:104
+#: templates/oscar/catalogue/detail.html:105
 #: templates/oscar/customer/anon_order.html:56
 #: templates/oscar/dashboard/offers/metadata_form.html:7
 #: templates/oscar/dashboard/offers/offer_list.html:52
@@ -4539,39 +4472,6 @@ msgstr "Цена с НДС"
 #: templates/oscar/dashboard/offers/partials/offer.html:10
 msgid "Availability"
 msgstr "Наличие"
-
-#: templates/oscar/catalogue/detail.html:115
-msgid "Num reviews"
-msgstr "Отзывов"
-
-#: templates/oscar/catalogue/detail.html:128
-msgid "Customer Reviews"
-msgstr "Отзывы покупателей"
-
-#: templates/oscar/catalogue/detail.html:131
-#: templates/oscar/reviews/reviews.html:38
-msgid "Read customer reviews on this product."
-msgstr "Читать отзывы покупателей об этом товаре."
-
-#: templates/oscar/catalogue/detail.html:133
-msgid "Be the first to review this product."
-msgstr "Оставь отзыв первым."
-
-#: templates/oscar/catalogue/detail.html:145
-msgid "Reviewed by"
-msgstr ""
-
-#: templates/oscar/catalogue/detail.html:165
-msgid "See all reviews"
-msgstr "Просмотреть все отзывы"
-
-#: templates/oscar/catalogue/detail.html:176
-msgid "Related items"
-msgstr ""
-
-#: templates/oscar/catalogue/detail.html:195
-msgid "Recommended items"
-msgstr ""
 
 #: templates/oscar/catalogue/partials/add_to_basket_form.html:10
 #: templates/oscar/catalogue/partials/add_to_basket_form_compact.html:9
@@ -4606,10 +4506,6 @@ msgstr "Предыдущий"
 #: templates/oscar/catalogue/partials/gallery.html:29
 msgid "Next"
 msgstr "Следующий"
-
-#: templates/oscar/catalogue/partials/product.html:22
-msgid "No Rating"
-msgstr ""
 
 #: templates/oscar/catalogue/partials/stock_record.html:5
 #, python-format
@@ -4730,20 +4626,20 @@ msgid "before you checkout."
 msgstr ""
 
 #: templates/oscar/checkout/nav.html:4
-msgid "1. Shipping address"
-msgstr "1. Адрес доставки"
+msgid "2. Shipping address"
+msgstr "2. Адрес доставки"
 
 #: templates/oscar/checkout/nav.html:5
-msgid "2. Shipping method"
-msgstr "2. Тип доставки"
+msgid "1. Shipping method"
+msgstr "1. Тип доставки"
 
 #: templates/oscar/checkout/nav.html:6
 msgid "3. Payment"
 msgstr "3. Оплата"
 
 #: templates/oscar/checkout/nav.html:7
-msgid "4. Confirmation"
-msgstr "4. Подтверждение"
+msgid "3. Confirmation"
+msgstr "3. Подтверждение"
 
 #: templates/oscar/checkout/payment_details.html:6
 msgid "Payment details"
@@ -4883,7 +4779,7 @@ msgstr ""
 
 #: templates/oscar/checkout/shipping_methods.html:53
 msgid "Select option"
-msgstr ""
+msgstr "Выбрать"
 
 #: templates/oscar/checkout/thank_you.html:7
 msgid "Confirmation of order"
@@ -4953,6 +4849,38 @@ msgstr ""
 #: templates/oscar/checkout/user_address_delete.html:19
 msgid "Yes!"
 msgstr "Да!"
+
+#: templates/oscar/checkout/user_address_delete.html:20
+#: templates/oscar/checkout/user_address_form.html:21
+#: templates/oscar/customer/address_delete.html:53
+#: templates/oscar/customer/address_form.html:52
+#: templates/oscar/customer/change_password_form.html:38
+#: templates/oscar/customer/profile_form.html:46
+#: templates/oscar/dashboard/catalogue/category_delete.html:40
+#: templates/oscar/dashboard/comms/detail.html:106
+#: templates/oscar/dashboard/offers/offer_delete.html:43
+#: templates/oscar/dashboard/offers/offer_detail.html:58
+#: templates/oscar/dashboard/offers/preview.html:22
+#: templates/oscar/dashboard/offers/step_form.html:47
+#: templates/oscar/dashboard/orders/shippingaddress_form.html:39
+#: templates/oscar/dashboard/pages/delete.html:43
+#: templates/oscar/dashboard/pages/update.html:70
+#: templates/oscar/dashboard/promotions/delete.html:43
+#: templates/oscar/dashboard/promotions/delete_pagepromotion.html:24
+#: templates/oscar/dashboard/promotions/form.html:41
+#: templates/oscar/dashboard/ranges/range_delete.html:42
+#: templates/oscar/dashboard/ranges/range_form.html:45
+#: templates/oscar/dashboard/reviews/review_delete.html:54
+#: templates/oscar/dashboard/reviews/review_update.html:84
+#: templates/oscar/dashboard/users/alerts/delete.html:41
+#: templates/oscar/dashboard/users/alerts/update.html:38
+#: templates/oscar/dashboard/vouchers/voucher_delete.html:52
+#: templates/oscar/dashboard/vouchers/voucher_detail.html:91
+#: templates/oscar/dashboard/vouchers/voucher_form.html:42
+#: templates/oscar/partials/form.html:7
+#: templates/oscar/reviews/add_review.html:14
+msgid "cancel"
+msgstr "отменить"
 
 #: templates/oscar/checkout/user_address_form.html:14
 msgid "Enter an address for your addressbook"
@@ -5042,6 +4970,11 @@ msgstr ""
 #: templates/oscar/customer/anon_order.html:59
 msgid "Line price incl. tax"
 msgstr ""
+
+#: templates/oscar/customer/anon_order.html:72
+#: templates/oscar/customer/order.html:82
+msgid "Write a review"
+msgstr "Написать отзыв"
 
 #: templates/oscar/customer/anon_order.html:87
 #: templates/oscar/customer/order.html:94
@@ -7027,6 +6960,10 @@ msgstr ""
 msgid "Reviews of"
 msgstr ""
 
+#: templates/oscar/reviews/reviews.html:38
+msgid "Read customer reviews on this product."
+msgstr "Читать отзывы покупателей об этом товаре."
+
 #: templates/oscar/reviews/reviews.html:39
 msgid "Add a review"
 msgstr ""
@@ -7058,10 +6995,6 @@ msgstr[2] ""
 msgid "\"%(q)s\""
 msgstr ""
 
-#: templates/oscar/search/results.html:28
-msgid "Browse Categories"
-msgstr "Каталог"
-
 #: templates/oscar/search/results.html:47
 msgid "Search for"
 msgstr "Поиск"
@@ -7086,6 +7019,29 @@ msgstr ""
 #, python-format
 msgid "You need to select some %ss"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Items"
+#~ msgstr "Позиции заказа"
+
+#~ msgid "Move to basket"
+#~ msgstr "Переместить в крзину"
+
+#~ msgid "Num reviews"
+#~ msgstr "Отзывов"
+
+#, fuzzy
+#~ msgid "Browse categories"
+#~ msgstr "Каталог"
+
+#~ msgid "Customer Reviews"
+#~ msgstr "Отзывы покупателей"
+
+#~ msgid "Be the first to review this product."
+#~ msgstr "Оставь отзыв первым."
+
+#~ msgid "See all reviews"
+#~ msgstr "Просмотреть все отзывы"
 
 #, fuzzy
 #~ msgid "Browse Сategories"

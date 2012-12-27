@@ -52,7 +52,7 @@
             <h1>{{ product.get_title }}</h1>
             
             {% include "catalogue/partials/stock_record.html" %}
-            
+            {% comment %}
 			{% if reviews %}
 				<ul class="review_count">
 					{% for review in reviews %}
@@ -64,7 +64,7 @@
 					<a id="write_review" href="{% url catalogue:reviews-add product.slug product.id %}#addreview" class="btn btn-success btn-small">{% trans "Write a review" %}</a>
 				</p>
 			{% endif %}
-             
+            {% endcomment %}
             <hr/>
 
             {% include "catalogue/partials/add_to_basket_form.html" %}
@@ -111,17 +111,19 @@
             <td>{{ av.value }}</td>
         </tr>
         {% endfor %}
+        {% comment %}
         <tr>
 			<th>{% trans "Num reviews" %}</th>
             <td>{{ reviews.count }}</td>
         </tr>
+        {% endcomment %}
         <tr>
             <td></td>
             <td></td>
         </tr>
     </table>
 	{% endblock %}
-
+    {% comment %}
     {% block product_review %}
     <section>
         <div id="reviews" class="sub-header">
@@ -168,7 +170,8 @@
         {% endif %}
     </section>    
     {% endblock product_review %}
-    
+    {% endcomment %}
+    {% comment %}
     <div class="row-fluid">
         {% if product.related_products.count %}
         <div class="span6">
@@ -211,6 +214,7 @@
 		{% recently_viewed_products %}
 
     </div>
+    {% endcomment %}
 </article><!-- End of product page -->
 {% endblock content %}
 

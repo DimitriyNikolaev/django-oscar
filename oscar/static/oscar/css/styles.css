@@ -1213,7 +1213,7 @@ form:after{clear:both;}
 .checkoutNav ul li.active{background-color:#0088CC;}
 .checkoutNav ul li:before{border-color:transparent transparent transparent #fff;border-style:solid;border-width:15px 0 15px 15px;content:"";float:left;height:0;left:0;position:absolute;top:0;width:0;}
 .checkoutNav ul li.active h3{color:#fff;text-align:center;font-size:12px;}
-.shipping-payment .well{min-height:330px;}
+.shipping-payment .well{min-height:150px;}
 .five li{width:20%;}
 .four li{width:25%;}
 .three li{width:33.33333333333333%;}
@@ -1224,17 +1224,17 @@ form:after{clear:both;}
 .products:after{clear:both;}
 .products>li{list-style:none;}
 .products li{float:left;}.products li li{float:none;}
-.product_pod{padding:8%;position:relative;height:405px;overflow:hidden;text-align:center;*zoom:1;}.product_pod:before,.product_pod:after{display:table;content:"";line-height:0;}
+.product_pod{padding:5%;position:relative;height:350px;overflow:hidden;text-align:center;*zoom:1;}.product_pod:before,.product_pod:after{display:table;content:"";line-height:0;}
 .product_pod:after{clear:both;}
 .product_pod p{margin-bottom:0;}
 .product_pod h3{font-size:1em;margin-bottom:0;line-height:20px;}.product_pod h3 a{line-height:20px;}
-.product_pod .price_color{min-height:50px;}
+.product_pod .price_color{min-height:40px;}
 .product_pod h4{*zoom:1;margin-bottom:20px;margin-top:10px;line-height:20px;font-size:17px;}.product_pod h4:before,.product_pod h4:after{display:table;content:"";line-height:0;}
 .product_pod h4:after{clear:both;}
 .product_pod form p{min-height:40px;}
 .product_pod .availability{margin-bottom:10px;text-align:center;min-height:30px;white-space:nowrap;}
 .product_pod button{width:100%;}
-.product_pod .product_price{position:absolute;bottom:8%;left:8%;width:84%;min-height:130px;}.product_pod .product_price form{margin-bottom:0px;}.product_pod .product_price form input#id_quantity,.product_pod .product_price form #id_product_id{width:90%;}
+.product_pod .product_price{position:absolute;bottom:5%;left:8%;width:84%;min-height:130px;}.product_pod .product_price form{margin-bottom:0px;}.product_pod .product_price form input#id_quantity,.product_pod .product_price form #id_product_id{width:90%;}
 .product_pod .product_price form label{display:none;}
 .product_pod .product_price .btn{padding-left:0px;padding-right:0px;width:100%;}
 .image_container{width:100%;min-height:155px;overflow:hidden;text-align:center;margin-bottom:10px;position:relative;}.image_container img{max-height:155px;width:auto;margin:0px auto;}

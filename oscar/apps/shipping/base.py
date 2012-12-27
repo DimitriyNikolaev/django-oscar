@@ -6,6 +6,7 @@ class ShippingMethod(object):
     name = 'Default shipping'
     description = ''
     is_discounted = False
+    required_address = True
 
     def __init__(self, *args, **kwargs):
         self.exempt_from_tax = False
