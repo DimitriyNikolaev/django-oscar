@@ -1,9 +1,13 @@
+from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView, RedirectView
 from django.core.urlresolvers import reverse
 
 
 class HomeView(TemplateView):
     template_name = 'promotions/home.html'
+
+    def get(self, request, *args, **kwargs):
+        return HttpResponseRedirect(reverse('catalogue:index'))
 
 
 class RecordClickView(RedirectView):

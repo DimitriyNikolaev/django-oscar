@@ -29,6 +29,7 @@ class Shop(Application):
     def get_urls(self):
         urlpatterns = patterns('',
             (r'^catalogue/', include(self.catalogue_app.urls)),
+
             (r'^basket/', include(self.basket_app.urls)),
             (r'^checkout/', include(self.checkout_app.urls)),
             (r'^accounts/', include(self.customer_app.urls)),
