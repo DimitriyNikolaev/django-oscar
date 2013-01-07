@@ -25,13 +25,13 @@ class AbstractAddress(models.Model):
     )
     title = models.CharField(_("Title"), max_length=64, choices=TITLE_CHOICES,
                              blank=True, null=True)
-    first_name = models.CharField(_("First name"), max_length=255, blank=True,
+    first_name = models.CharField(_("First name"), max_length=255, blank=False,
                                   null=True)
-    last_name = models.CharField(_("Last name"), max_length=255, blank=True)
+    last_name = models.CharField(_("Last name"), max_length=255, blank=False)
 
     # We use quite a few lines of an address as they are often quite long and
     # it's easier to just hide the unnecessary ones than add extra ones.
-    line1 = models.CharField(_("First line of address"), max_length=255)
+    line1 = models.CharField(_("First line of address"), max_length=255, blank=False)
     line2 = models.CharField(_("Second line of address"), max_length=255,
                              blank=True, null=True)
     line3 = models.CharField(_("Third line of address"), max_length=255,
@@ -40,7 +40,7 @@ class AbstractAddress(models.Model):
     state = models.CharField(_("State/County"), max_length=255, blank=True,
                              null=True)
     postcode = models.CharField(_("Post/Zip-code"), max_length=64)
-    country = models.ForeignKey('address.Country', verbose_name=_("Country"))
+    country = models.ForeignKey('address.Country', verbose_name=_("Country"), blank=True, null=True)
 
     # A field only used for searching addresses - this contains all the
     # relevant fields
@@ -76,8 +76,8 @@ class AbstractAddress(models.Model):
     def _update_search_text(self):
         search_fields = filter(
             lambda x: x, [self.first_name, self.last_name,
-                          self.line1, self.line2, self.line3, self.line4,
-                          self.state, self.postcode, self.country.name])
+                          self.line1])#, self.line2, self.line3, self.line4,
+                          #self.state, self.postcode, self.country.name])
         self.search_text = ' '.join(search_fields)
 
     @property
@@ -109,8 +109,8 @@ class AbstractAddress(models.Model):
         """
         self._clean_fields()
         fields = filter(
-            lambda x: x, [self.salutation(), self.line1, self.line2,
-                          self.line3, self.line4, self.state, self.postcode])
+            lambda x: x, [self.name(), self.line1] )#self.line2
+                          #self.line3, self.line4, self.state, self.postcode])
         if self.country:
             fields.append(self.country.name)
         return fields
@@ -169,7 +169,7 @@ class AbstractShippingAddress(AbstractAddress):
     it should be read-only after that.
     """
     phone_number = models.CharField(_("Phone number"), max_length=32,
-                                    blank=True, null=True)
+                                    blank=False, null=True)
     notes = models.TextField(
         blank=True, null=True,
         verbose_name=_('Courier instructions'),

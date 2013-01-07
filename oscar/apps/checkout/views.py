@@ -166,7 +166,7 @@ class ShippingAddressView(CheckoutSessionMixin, FormView):
         return super(ShippingAddressView, self).form_valid(form)
 
     def get_success_url(self):
-        return reverse('checkout:shipping-method')
+        return reverse('checkout:preview')
 
 
 class UserAddressCreateView(CheckoutSessionMixin, CreateView):
@@ -400,6 +400,7 @@ class PaymentDetailsView(OrderPlacementMixin, TemplateView):
         if shipping_required and (not self.checkout_session.is_shipping_address_set() and self.get_shipping_method().code in self.get_methods_required_address()):
             messages.error(self.request, _("Please choose a shipping address"))
             return HttpResponseRedirect(reverse('checkout:shipping-address'))
+
     def get_methods_required_address(self):
         return Repository().get_methods_required_address(self.request.user, self.request.basket, self.get_shipping_address())
     def get(self, request, *args, **kwargs):

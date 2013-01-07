@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-26 15:56+0400\n"
+"POT-Creation-Date: 2013-01-07 07:12+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -145,11 +145,11 @@ msgstr "Телефон"
 
 #: apps/address/abstract_models.py:175
 msgid "Courier instructions"
-msgstr ""
+msgstr "Комментарии курьеру"
 
 #: apps/address/abstract_models.py:176
 msgid "For example, leave the parcel in the wheelie bin if I'm not in."
-msgstr ""
+msgstr "Например, укажите время когда вы будете дома или когда вам позвонить."
 
 #: apps/address/abstract_models.py:181
 #: templates/oscar/checkout/shipping_address.html:5
@@ -542,8 +542,8 @@ msgstr ""
 #: apps/order/abstract_models.py:504 apps/order/abstract_models.py:576
 #: apps/order/abstract_models.py:618
 #: templates/oscar/basket/partials/basket_content.html:27
-#: templates/oscar/checkout/checkout.html:90
-#: templates/oscar/checkout/thank_you.html:74
+#: templates/oscar/checkout/checkout.html:100
+#: templates/oscar/checkout/thank_you.html:82
 #: templates/oscar/customer/anon_order.html:57
 #: templates/oscar/customer/order.html:63
 #: templates/oscar/dashboard/orders/line_detail.html:53
@@ -1393,70 +1393,62 @@ msgstr ""
 msgid "My email address is"
 msgstr "Мой email"
 
-#: apps/checkout/forms.py:25
-msgid "No, I am a new customer"
-msgstr ""
-
-#: apps/checkout/forms.py:26
-msgid "Yes, I have a password"
-msgstr ""
-
-#: apps/checkout/views.py:108 apps/checkout/views.py:249
-#: apps/checkout/views.py:330 apps/checkout/views.py:376
+#: apps/checkout/views.py:109 apps/checkout/views.py:255
+#: apps/checkout/views.py:342 apps/checkout/views.py:390
 msgid "You need to add some items to your basket to checkout"
 msgstr ""
 
-#: apps/checkout/views.py:113
+#: apps/checkout/views.py:114
 msgid "Please either sign in or enter your email address"
 msgstr ""
 
-#: apps/checkout/views.py:119
+#: apps/checkout/views.py:120
 msgid "Your basket does not require a shipping address to be submitted"
 msgstr ""
 
-#: apps/checkout/views.py:150
+#: apps/checkout/views.py:124 apps/checkout/views.py:349
+#: apps/checkout/views.py:397
+msgid "Please choose a shipping method"
+msgstr ""
+
+#: apps/checkout/views.py:156
 msgid "Address deleted from your address book"
 msgstr ""
 
-#: apps/checkout/views.py:188 apps/checkout/views.py:209
+#: apps/checkout/views.py:194 apps/checkout/views.py:215
 #: apps/customer/views.py:492 apps/customer/views.py:510
 msgid "Address saved"
 msgstr ""
 
-#: apps/checkout/views.py:223
+#: apps/checkout/views.py:229
 msgid "Address deleted"
 msgstr ""
 
-#: apps/checkout/views.py:259 apps/checkout/views.py:337
-#: apps/checkout/views.py:382
-msgid "Please choose a shipping address"
-msgstr ""
-
-#: apps/checkout/views.py:267
+#: apps/checkout/views.py:274
 msgid ""
 "Shipping is not available for your chosen address - please choose another"
 msgstr ""
 
-#: apps/checkout/views.py:302
+#: apps/checkout/views.py:311
 msgid "Your submitted shipping method is not permitted"
 msgstr ""
 
-#: apps/checkout/views.py:342 apps/checkout/views.py:386
-msgid "Please choose a shipping method"
+#: apps/checkout/views.py:354 apps/checkout/views.py:401
+msgid "Please choose a shipping address"
 msgstr ""
 
-#: apps/checkout/views.py:477
+#: apps/checkout/views.py:494
 msgid "This order cannot be submitted as the basket is empty"
 msgstr ""
 
-#: apps/checkout/views.py:506
+#: apps/checkout/views.py:523
 msgid ""
 "A problem occurred while processing payment for this order.  No payment has "
 "been taken.  Please try again contact customer services if this problem "
 "persists"
 msgstr ""
 
-#: apps/checkout/views.py:620
+#: apps/checkout/views.py:637
 msgid "No order found"
 msgstr ""
 
@@ -1758,8 +1750,9 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: apps/dashboard/catalogue/app.py:9
+#: apps/dashboard/catalogue/app.py:9 templates/oscar/catalogue/browse.html:17
 #: templates/oscar/dashboard/catalogue/product_update.html:18
+#: templates/oscar/partials/nav_menu.html:6
 msgid "Catalogue"
 msgstr "Каталог"
 
@@ -3195,11 +3188,11 @@ msgstr ""
 #: templates/oscar/customer/anon_order.html:91
 #: templates/oscar/customer/order.html:98
 msgid "Shipping charge (inc. tax)"
-msgstr ""
+msgstr "Стоимость доставки"
 
 #: apps/order/abstract_models.py:39
 msgid "Shipping charge (excl. tax)"
-msgstr ""
+msgstr "Стоимость доставки"
 
 #: apps/order/abstract_models.py:44 templates/oscar/customer/order.html:52
 msgid "Shipping Address"
@@ -3700,7 +3693,7 @@ msgid "Available"
 msgstr "В наличии"
 
 #: apps/partner/wrappers.py:74
-#: templates/oscar/catalogue/partials/stock_record.html:11
+#: templates/oscar/catalogue/partials/stock_record.html:12
 #: templates/oscar/promotions/default.html:19
 #: templates/oscar/promotions/singleproduct.html:43
 msgid "Not available"
@@ -4019,19 +4012,20 @@ msgstr "Поиск"
 msgid "Free shipping"
 msgstr "Бесплатная доставка"
 
-#: apps/shipping/methods.py:24
+#: apps/shipping/methods.py:25
 msgid "No shipping required"
 msgstr ""
 
-#: apps/shipping/methods.py:27
+#: apps/shipping/methods.py:29 templates/oscar/checkout/checkout.html:62
+#: templates/oscar/checkout/thank_you.html:48
 msgid "Pickup"
 msgstr "Самовывоз"
 
-#: apps/shipping/methods.py:31
+#: apps/shipping/methods.py:34
 msgid "Fixed price shipping"
 msgstr ""
 
-#: apps/shipping/methods.py:47
+#: apps/shipping/methods.py:50
 msgid "Curier Delivery"
 msgstr "Курьерская доставка"
 
@@ -4120,7 +4114,7 @@ msgstr ""
 msgid "Charge for weights up to %sKg"
 msgstr ""
 
-#: apps/shipping/repository.py:37
+#: apps/shipping/repository.py:40
 msgid "You need to define some shipping methods"
 msgstr ""
 
@@ -4289,7 +4283,7 @@ msgid "Items to buy now"
 msgstr "Выбранные товары"
 
 #: templates/oscar/basket/partials/basket_content.html:28
-#: templates/oscar/checkout/checkout.html:91
+#: templates/oscar/checkout/checkout.html:101
 #: templates/oscar/dashboard/catalogue/product_update.html:145
 #: templates/oscar/dashboard/ranges/range_product_list.html:99
 msgid "Price"
@@ -4327,14 +4321,14 @@ msgid "Basket total (after discounts)"
 msgstr ""
 
 #: templates/oscar/basket/partials/basket_content.html:152
-#: templates/oscar/checkout/thank_you.html:107
+#: templates/oscar/checkout/thank_you.html:115
 msgid "Basket total"
 msgstr "На сумму"
 
 #: templates/oscar/basket/partials/basket_content.html:166
 #: templates/oscar/checkout/checkout.html:29
 #: templates/oscar/checkout/thank_you.html:27
-#: templates/oscar/checkout/thank_you.html:113
+#: templates/oscar/checkout/thank_you.html:121
 #: templates/oscar/dashboard/orders/order_detail.html:76
 msgid "Shipping"
 msgstr "Доставка"
@@ -4357,7 +4351,7 @@ msgstr ""
 "Другие способы доставки могут быть выбраны в процессе оформления заказа"
 
 #: templates/oscar/basket/partials/basket_content.html:201
-#: templates/oscar/checkout/thank_you.html:133
+#: templates/oscar/checkout/thank_you.html:141
 #: templates/oscar/customer/anon_order.html:95
 #: templates/oscar/customer/order.html:102
 #: templates/oscar/dashboard/offers/offer_detail.html:36
@@ -4375,7 +4369,7 @@ msgid "Your basket is empty."
 msgstr "Ваша корзина пуста"
 
 #: templates/oscar/basket/partials/basket_content.html:221
-#: templates/oscar/checkout/thank_you.html:149
+#: templates/oscar/checkout/thank_you.html:157
 msgid "Continue shopping"
 msgstr ""
 
@@ -4394,7 +4388,6 @@ msgid "Total:"
 msgstr "Сумма:"
 
 #: templates/oscar/basket/partials/basket_quick.html:31
-#: templates/oscar/partials/mini_basket.html:7
 msgid "View Basket"
 msgstr "Открыть корзину"
 
@@ -4403,7 +4396,18 @@ msgstr "Открыть корзину"
 msgid "Checkout"
 msgstr "Оформить"
 
-#: templates/oscar/catalogue/browse.html:17
+#: templates/oscar/catalogue/browse.html:38
+#: templates/oscar/search/results.html:28
+msgid "Browse Categories"
+msgstr "Каталог"
+
+#: templates/oscar/catalogue/browse.html:83
+#: templates/oscar/dashboard/catalogue/product_list.html:112
+#: templates/oscar/dashboard/ranges/range_product_list.html:129
+#: templates/oscar/offer/detail.html:60
+msgid "No products found."
+msgstr "Товаров не найдено"
+
 #: templates/oscar/catalogue/detail.html:18
 #: templates/oscar/customer/address_delete.html:14
 #: templates/oscar/customer/address_form.html:14
@@ -4427,18 +4431,6 @@ msgstr "Оформить"
 #: templates/oscar/search/results.html:13
 msgid "Home"
 msgstr ""
-
-#: templates/oscar/catalogue/browse.html:38
-#: templates/oscar/search/results.html:28
-msgid "Browse Categories"
-msgstr "Каталог"
-
-#: templates/oscar/catalogue/browse.html:81
-#: templates/oscar/dashboard/catalogue/product_list.html:112
-#: templates/oscar/dashboard/ranges/range_product_list.html:129
-#: templates/oscar/offer/detail.html:60
-msgid "No products found."
-msgstr "Товаров не найдено"
 
 #: templates/oscar/catalogue/detail.html:42
 msgid "Edit this product"
@@ -4528,49 +4520,51 @@ msgstr ""
 msgid "Change shipping address"
 msgstr "Изменить адрес доставки"
 
-#: templates/oscar/checkout/checkout.html:62
+#: templates/oscar/checkout/checkout.html:64
 msgid "No shipping is required for this order"
 msgstr ""
 
-#: templates/oscar/checkout/checkout.html:71
-#: templates/oscar/checkout/thank_you.html:56
+#: templates/oscar/checkout/checkout.html:73
+#: templates/oscar/checkout/thank_you.html:58
 #: templates/oscar/dashboard/orders/order_detail.html:77
 msgid "Payment"
 msgstr "Оплата"
 
-#: templates/oscar/checkout/checkout.html:74
-msgid "Payment details to go here"
-msgstr ""
+#: templates/oscar/checkout/checkout.html:77
+#: templates/oscar/checkout/thank_you.html:60
+msgid "Cash"
+msgstr "Наличными"
 
-#: templates/oscar/checkout/checkout.html:76
-msgid "Change payment details"
-msgstr "Изменить информацию об оплате"
+#: templates/oscar/checkout/checkout.html:79
+#: templates/oscar/checkout/thank_you.html:62
+msgid "Cash curier"
+msgstr "Наличными курьеру"
 
-#: templates/oscar/checkout/checkout.html:85
+#: templates/oscar/checkout/checkout.html:95
 #: templates/oscar/customer/anon_order.html:50
 #: templates/oscar/customer/order.html:50
 #: templates/oscar/dashboard/orders/order_detail.html:75
 msgid "Order contents"
 msgstr "Заказ"
 
-#: templates/oscar/checkout/checkout.html:89
+#: templates/oscar/checkout/checkout.html:99
 msgid "Items in basket"
 msgstr "Товары в корзине"
 
-#: templates/oscar/checkout/checkout.html:129
+#: templates/oscar/checkout/checkout.html:139
 #: templates/oscar/customer/emails/commtype_order_placed_body.html:14
 #: templates/oscar/customer/emails/commtype_order_placed_body.txt:10
-#: templates/oscar/partials/mini_basket.html:16
+#: templates/oscar/partials/mini_basket.html:7
 msgid "Basket total:"
 msgstr "Сумма:"
 
-#: templates/oscar/checkout/checkout.html:136
+#: templates/oscar/checkout/checkout.html:146
 #: templates/oscar/customer/emails/commtype_order_placed_body.html:15
 #: templates/oscar/customer/emails/commtype_order_placed_body.txt:11
 msgid "Shipping:"
 msgstr "Доставка:"
 
-#: templates/oscar/checkout/checkout.html:140
+#: templates/oscar/checkout/checkout.html:150
 #, python-format
 msgid ""
 "\n"
@@ -4578,11 +4572,11 @@ msgid ""
 "\t\t\t\t"
 msgstr ""
 
-#: templates/oscar/checkout/checkout.html:155
+#: templates/oscar/checkout/checkout.html:165
 msgid "Order total:"
 msgstr "Сумма заказа"
 
-#: templates/oscar/checkout/checkout.html:161
+#: templates/oscar/checkout/checkout.html:171
 msgid "Edit order contents"
 msgstr "Изменить заказ"
 
@@ -4594,50 +4588,22 @@ msgstr ""
 msgid "Who are you?"
 msgstr ""
 
-#: templates/oscar/checkout/gateway.html:40
-msgid "I have an account and my password is"
-msgstr ""
-
-#: templates/oscar/checkout/gateway.html:56
-msgid "Get a password reminder"
-msgstr ""
-
-#: templates/oscar/checkout/gateway.html:62
-msgid "I don't want to create an account"
-msgstr ""
-
-#: templates/oscar/checkout/gateway.html:68
-#: templates/oscar/checkout/payment_details.html:31
+#: templates/oscar/checkout/gateway.html:69
+#: templates/oscar/checkout/payment_details.html:35
 #: templates/oscar/checkout/shipping_address.html:59
 #: templates/oscar/dashboard/offers/step_form.html:46
 msgid "Continue"
 msgstr "Продолжить"
 
-#: templates/oscar/checkout/gateway.html:69
-msgid "Alternatively"
-msgstr ""
-
-#: templates/oscar/checkout/gateway.html:69
-msgid "create an account"
-msgstr ""
-
-#: templates/oscar/checkout/gateway.html:69
-msgid "before you checkout."
-msgstr ""
-
 #: templates/oscar/checkout/nav.html:4
-msgid "2. Shipping address"
-msgstr "2. Адрес доставки"
-
-#: templates/oscar/checkout/nav.html:5
 msgid "1. Shipping method"
 msgstr "1. Тип доставки"
 
-#: templates/oscar/checkout/nav.html:6
-msgid "3. Payment"
-msgstr "3. Оплата"
+#: templates/oscar/checkout/nav.html:5
+msgid "2. Shipping address"
+msgstr "2. Адрес доставки"
 
-#: templates/oscar/checkout/nav.html:7
+#: templates/oscar/checkout/nav.html:8
 msgid "3. Confirmation"
 msgstr "3. Подтверждение"
 
@@ -4645,11 +4611,10 @@ msgstr "3. Подтверждение"
 msgid "Payment details"
 msgstr ""
 
-#: templates/oscar/checkout/payment_details.html:24
-msgid ""
-"This page needs implementing within your project.  You may want to use on "
-"one of Oscar's payment gateway libraries:"
-msgstr ""
+#: templates/oscar/checkout/payment_details.html:20
+#, fuzzy
+msgid "Enter payment details"
+msgstr "Изменить информацию об оплате"
 
 #: templates/oscar/checkout/preview.html:5
 msgid "Order preview"
@@ -4665,7 +4630,7 @@ msgstr "Разместить заказ"
 
 #: templates/oscar/checkout/shipping_address.html:16
 msgid "Where should we ship to?"
-msgstr ""
+msgstr "Куда доставить?"
 
 #: templates/oscar/checkout/shipping_address.html:35
 msgid "Ship to this address"
@@ -4764,7 +4729,7 @@ msgid "Choose a shipping method"
 msgstr "Выберите тип доставки"
 
 #: templates/oscar/checkout/shipping_methods.html:24
-#: templates/oscar/checkout/thank_you.html:75
+#: templates/oscar/checkout/thank_you.html:83
 msgid "Cost"
 msgstr "Стоимость"
 
@@ -4805,39 +4770,35 @@ msgid ""
 "communication with us regarding your order."
 msgstr ""
 
-#: templates/oscar/checkout/thank_you.html:48
+#: templates/oscar/checkout/thank_you.html:50
 msgid "No shipping is required for this order."
 msgstr ""
 
-#: templates/oscar/checkout/thank_you.html:60
-msgid "No payment was required for this order."
-msgstr ""
-
-#: templates/oscar/checkout/thank_you.html:67
+#: templates/oscar/checkout/thank_you.html:75
 msgid "Order details"
 msgstr ""
 
-#: templates/oscar/checkout/thank_you.html:72
+#: templates/oscar/checkout/thank_you.html:80
 msgid "Items purchased"
 msgstr ""
 
-#: templates/oscar/checkout/thank_you.html:73
+#: templates/oscar/checkout/thank_you.html:81
 msgid "Estimated dispatch date"
 msgstr ""
 
-#: templates/oscar/checkout/thank_you.html:140
+#: templates/oscar/checkout/thank_you.html:148
 msgid "Tracking your order"
 msgstr ""
 
-#: templates/oscar/checkout/thank_you.html:142
+#: templates/oscar/checkout/thank_you.html:150
 msgid "You can"
 msgstr ""
 
-#: templates/oscar/checkout/thank_you.html:143
+#: templates/oscar/checkout/thank_you.html:151
 msgid "track the status of your order"
 msgstr ""
 
-#: templates/oscar/checkout/thank_you.html:148
+#: templates/oscar/checkout/thank_you.html:156
 msgid "Print this page"
 msgstr ""
 
@@ -4965,11 +4926,11 @@ msgstr ""
 
 #: templates/oscar/customer/anon_order.html:58
 msgid "Line price excl. tax"
-msgstr ""
+msgstr "Цена товара без НДС"
 
 #: templates/oscar/customer/anon_order.html:59
 msgid "Line price incl. tax"
-msgstr ""
+msgstr "Цена товара с НДС"
 
 #: templates/oscar/customer/anon_order.html:72
 #: templates/oscar/customer/order.html:82
@@ -4979,7 +4940,7 @@ msgstr "Написать отзыв"
 #: templates/oscar/customer/anon_order.html:87
 #: templates/oscar/customer/order.html:94
 msgid "Basket total (inc. tax)"
-msgstr ""
+msgstr "Товаров на сумму"
 
 #: templates/oscar/customer/change_password_form.html:16
 #: templates/oscar/customer/change_password_form.html:21
@@ -5096,11 +5057,11 @@ msgstr "Адрес:"
 
 #: templates/oscar/customer/order.html:125
 msgid "Contact Number:"
-msgstr ""
+msgstr "Контактный телефон"
 
 #: templates/oscar/customer/order.html:131
 msgid "Shipping Notes:"
-msgstr ""
+msgstr "Комментарии к доставке"
 
 #: templates/oscar/customer/order_list.html:43
 msgid "Search in orders"
@@ -5989,7 +5950,7 @@ msgstr ""
 
 #: templates/oscar/dashboard/orders/order_detail.html:134
 msgid "Shipping charge"
-msgstr ""
+msgstr "Стоимость доставки"
 
 #: templates/oscar/dashboard/orders/order_detail.html:154
 msgid "Change status to"
@@ -6763,6 +6724,7 @@ msgid "What you need to do"
 msgstr ""
 
 #: templates/oscar/partials/footer.html:5
+#: templates/oscar/partials/nav_menu.html:10
 msgid "About"
 msgstr ""
 
@@ -6813,6 +6775,16 @@ msgstr ""
 #: templates/oscar/partials/nav_primary.html:63
 msgid "Go Home!"
 msgstr "На главную!"
+
+#: templates/oscar/partials/nav_menu.html:8
+#, fuzzy
+msgid "Payment/delivery"
+msgstr "Оплата"
+
+#: templates/oscar/partials/nav_menu.html:12
+#, fuzzy
+msgid "Contacts"
+msgstr "Содержание"
 
 #: templates/oscar/partials/pagination.html:8
 msgid "previous"
@@ -7019,6 +6991,9 @@ msgstr ""
 #, python-format
 msgid "You need to select some %ss"
 msgstr ""
+
+#~ msgid "3. Payment"
+#~ msgstr "3. Оплата"
 
 #, fuzzy
 #~ msgid "Items"

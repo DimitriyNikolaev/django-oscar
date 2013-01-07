@@ -1,0 +1,18 @@
+{% load i18n %}
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid ">
+            <ul class="nav listmenu">
+                <li class="listmenuitem"><a href="{% url catalogue:index %}">{% trans "Catalogue" %}</a></li>
+                <li class="divider-vertical"></li>
+                <li class="listmenuitem"><a>{% trans "Payment/delivery" %}</a></li>
+                <li class="divider-vertical"></li>
+                <li class="listmenuitem"><a>{% trans "About" %}</a></li>
+                <li class="divider-vertical"></li>
+                <li class="listmenuitem"><a>{% trans "Contacts" %}</a></li>
+
+            </ul>
+            {% comment %}<div>{% include "partials/search.html" %}</div>{% endcomment %}
+        </div>
+    </div>
+</div>

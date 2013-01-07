@@ -31,7 +31,7 @@
             {% endfor %}
 		</div>
 	</div>
-	
+	{% comment %}
 	<div class="control-group">
 		{{ form.options.errors }}
 		<div class="controls">
@@ -41,7 +41,7 @@
 			</label>
 		</div>
 	</div>
-	
+
 	<div class="control-group {% for error in form.password.errors %}error{% endfor %}">
 		<div class="controls">
 		    {{ form.password }}
@@ -63,10 +63,10 @@
 			</label>
 		</div>
 	</div>
-		
+	{% endcomment %}
 	<div class="form-actions">
 		<button type="submit" class="btn btn-large btn-primary">{% trans "Continue" %}</button>
-		{% trans "Alternatively" %} <a href="{% url customer:register %}?next={% url checkout:index %}">{% trans "create an account" %}</a> {% trans "before you checkout." %}
+		{% comment %}{% trans "Alternatively" %} <a href="{% url customer:register %}?next={% url checkout:index %}">{% trans "create an account" %}</a> {% trans "before you checkout." %} {% endcomment %}
 	</div>
 </form>
 

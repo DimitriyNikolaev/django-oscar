@@ -4,7 +4,9 @@
 {% block layout %}
     {# Top-horizontal bar with account, notifictions, dashboard links #}
     {% include "partials/nav_accounts.html" %}
-
+    <div class="nav pull-right search-control">
+        {% include "partials/search.html" %}
+    </div>
     {# Site logo/title, mini-basket, browse dropdown and searchbox #}
     <header class="header container-fluid">
         <div class="page_inner">
@@ -15,8 +17,10 @@
             </div>
         </div>
         {% category_tree depth=2 as categories %}
+
         {% block navigation %}
-            {% include "partials/nav_primary.html" %}
+            {% include "partials/nav_menu.html" %}
+            {% comment %}{% include "partials/nav_primary.html" %}{% endcomment %}
         {% endblock %}
     </header>
 

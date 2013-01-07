@@ -44,6 +44,8 @@
 					<dt>{% trans "Shipping method" %}</dt>
 					<dd>{{ order.shipping_method }}</dd>
 				</dl>
+            {% elif order.shipping_method %}
+                <p>{% trans "Pickup" %}</p>
 			{% else %}
 				{% trans "No shipping is required for this order." %}
 			{% endif %}
@@ -54,11 +56,16 @@
 		{% block payment_info %}
         <div class="well well-success">
 			<h3>{% trans "Payment" %}</h3>
-            {% for source in order.sources.all %}
+            {% if order.shipping_method and not order.shipping_address %}
+                <p>{% trans "Cash" %}</p>
+            {% else %}
+                <p>{% trans "Cash curier" %}</p>
+            {% endif %}
+            {% comment %}{% for source in order.sources.all %}
             {{ source }}
 			{% empty %}
 			{% trans "No payment was required for this order." %}
-            {% endfor %}
+            {% endfor %}{% endcomment %}
         </div>
 		{% endblock %}
     </div>

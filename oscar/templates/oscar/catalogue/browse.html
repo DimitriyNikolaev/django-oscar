@@ -14,7 +14,7 @@
 {% block breadcrumbs %}
 <ul class="breadcrumb">
     <li>
-        <a href="{% url promotions:home %}">{% trans "Home" %}</a>
+        <a href="{% url promotions:home %}">{% trans "Catalogue" %}</a>
         <span class="divider">/</span>
     </li>
 	{% if not category %}
@@ -53,6 +53,7 @@
 {% endblock %}
 
 {% block content %}
+    {% comment %}
     <div class="sub-header">
         <h1>{{ summary }}</h1>
     </div>
@@ -64,7 +65,7 @@
 			{% endif %}
         </div>
     {% endif %}
-
+    {% endcomment %}
     {% if products.count %}
 		<section>
 			<div class="mod">

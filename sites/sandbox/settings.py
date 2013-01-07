@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
 import os
 
 # Django settings for oscar project.
+from sphinx.locale import _
+
 PROJECT_DIR = os.path.dirname(__file__)
 location = lambda x: os.path.join(
     os.path.dirname(os.path.realpath(__file__)), x)
@@ -281,12 +284,14 @@ from oscar.defaults import *
 
 OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
 OSCAR_ALLOW_ANON_CHECKOUT = True
-OSCAR_INITIAL_ORDER_STATUS = 'Pending'
-OSCAR_INITIAL_LINE_STATUS = 'Pending'
+OSCAR_INITIAL_ORDER_STATUS = u'Принят'
+OSCAR_INITIAL_LINE_STATUS = u'Принят'
 OSCAR_ORDER_STATUS_PIPELINE = {
-    'Pending': ('Being processed', 'Cancelled',),
-    'Being processed': ('Processed', 'Cancelled',),
-    'Cancelled': (),
+    u'Принят': (u'Обрабатывается', u'Отменен',),
+    u'Обрабатывается': (u'Обработан', u'Отменен',),
+    u'Обработан':(u'Выполнен', u'Отменен',),
+    u'Выполнен':(),
+    u'Отменен': (),
     }
 
 OSCAR_SHOP_NAME = 'Oscar Sandbox'

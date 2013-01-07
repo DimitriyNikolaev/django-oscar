@@ -1213,7 +1213,7 @@ form:after{clear:both;}
 .checkoutNav ul li.active{background-color:#0088CC;}
 .checkoutNav ul li:before{border-color:transparent transparent transparent #fff;border-style:solid;border-width:15px 0 15px 15px;content:"";float:left;height:0;left:0;position:absolute;top:0;width:0;}
 .checkoutNav ul li.active h3{color:#fff;text-align:center;font-size:12px;}
-.shipping-payment .well{min-height:150px;}
+.shipping-payment .well{min-height:285px;}
 .five li{width:20%;}
 .four li{width:25%;}
 .three li{width:33.33333333333333%;}
@@ -1353,3 +1353,8 @@ a:hover .thumbnail{border-color:#0088cc;-webkit-box-shadow:0 1px 4px rgba(0, 105
 .show{display:block;}
 .invisible{visibility:hidden;}
 .affix{position:fixed;}
+
+.search-control{margin-right: 30px;}
+.listmenuitem {width: 22%; display: inline; }
+.listmenuitem > a {text-align: center;}
+.nav.listmenu{width: 100%;}

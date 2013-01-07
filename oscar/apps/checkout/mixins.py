@@ -141,9 +141,12 @@ class OrderPlacementMixin(CheckoutSessionMixin):
             basket = self.request.basket
         if not basket.is_shipping_required():
             return None
+        if not self.get_shipping_method().required_address:
+            return None
 
         addr_data = self.checkout_session.new_shipping_address_fields()
         addr_id = self.checkout_session.user_address_id()
+
         if addr_data:
             addr = self.create_shipping_address_from_form_fields(addr_data)
             self.create_user_address(addr_data)
