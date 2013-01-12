@@ -99,7 +99,7 @@
     		<th>{% trans "Status" %}</th>
     		<th>{% trans "Customer" %}</th>
     		<th>{% trans "Shipping address" %}</th>
-    		<th>{% trans "Billing address" %}</th>
+    		{% comment %}<th>{% trans "Billing address" %}</th>{% endcomment %}
             <th></th>
         </tr>
     </thead>
@@ -113,7 +113,7 @@
         <td>{{ order.status|default:"-" }}</td>
         <td>{{ order.email }}</td>
         <td>{{ order.shipping_address|default:"-" }}</td>
-        <td>{{ order.billing_address|default:"-" }}</td>
+        {% comment %}<td>{{ order.billing_address|default:"-" }}</td>{% endcomment %}
         <td>
 			<a class="btn btn-info" href="{% url dashboard:order-detail order.number %}">{% trans "View" %}</a>
         </td>

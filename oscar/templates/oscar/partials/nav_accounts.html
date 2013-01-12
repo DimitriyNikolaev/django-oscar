@@ -15,7 +15,7 @@
 				    {% if user.get_full_name %}
 						<li><div>{% trans "Welcome" %} <em>{{ user.get_full_name }}</em></div></li>
 					{% endif %}
-					<li>
+					{% comment %}<li>
 						<a href="{% url customer:summary %}"><i class="icon-user"></i> {% trans "Account" %}</a>
 					</li>
 					<li>
@@ -24,7 +24,7 @@
 							{% if num_unread_notifications > 0 %}
 								<span class="label label-important">{{ num_unread_notifications }}</span>
 							{% endif %}</a>
-					</li>
+					</li>{% endcomment %}
 					{% if user.is_staff %}
 						<li><a href="{% url dashboard:index %}"><i class="icon-list-ul"></i> {% trans "Dashboard" %}</a></li>
 					{% endif %}

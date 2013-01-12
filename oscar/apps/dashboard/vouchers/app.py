@@ -7,7 +7,7 @@ from oscar.apps.dashboard.vouchers import views
 from oscar.apps.dashboard.nav import register, Node
 
 node = Node(_('Vouchers'), 'dashboard:voucher-list')
-register(node, 60)
+#register(node, 60)
 
 
 class VoucherDashboardApplication(Application):

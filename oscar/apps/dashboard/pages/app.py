@@ -1,9 +1,13 @@
 from django.conf.urls import patterns, url
 from django.contrib.admin.views.decorators import staff_member_required
+from django.utils.translation import ugettext_lazy as _
+from oscar.apps.dashboard.nav import Node, register
 
 from oscar.core.application import Application
 from oscar.apps.dashboard.pages import views
 
+node = Node(_('Pages'), 'dashboard:page-list')
+register(node, 40)
 
 class FlatPageManagementApplication(Application):
     name = None

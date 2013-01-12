@@ -724,7 +724,7 @@ msgstr ""
 #: apps/basket/views.py:49
 #, fuzzy, python-format
 msgid "Basket total now %(total)s"
-msgstr "На сумму"
+msgstr "Сумма корзины %(total)s"
 
 #: apps/basket/views.py:169
 #, python-format
@@ -2010,7 +2010,7 @@ msgstr ""
 #: apps/dashboard/orders/app.py:11
 #: templates/oscar/dashboard/orders/statistics.html:21
 msgid "Statistics"
-msgstr ""
+msgstr "Статистика"
 
 #: apps/dashboard/orders/forms.py:60 apps/dashboard/reviews/forms.py:29
 msgid "Customer name"
@@ -2122,12 +2122,12 @@ msgstr ""
 #: templates/oscar/dashboard/orders/order_detail.html:52
 #: templates/oscar/dashboard/orders/order_list.html:97
 msgid "Date of purchase"
-msgstr ""
+msgstr "Дата заказа"
 
 #: apps/dashboard/orders/views.py:240
 #: templates/oscar/dashboard/orders/order_list.html:98
 msgid "Number of items"
-msgstr ""
+msgstr "Количество товаров"
 
 #: apps/dashboard/orders/views.py:241
 msgid "Order status"
@@ -2259,7 +2259,7 @@ msgstr ""
 
 #: apps/dashboard/pages/views.py:78
 msgid "Create New Page"
-msgstr ""
+msgstr "Создание новой страницы"
 
 #: apps/dashboard/pages/views.py:112
 #, python-format
@@ -3520,7 +3520,7 @@ msgstr ""
 #: apps/order/reports.py:20
 #: templates/oscar/dashboard/reports/partials/order_report.html:11
 msgid "Total incl. tax"
-msgstr ""
+msgstr "На сумму"
 
 #: apps/order/reports.py:21
 #: templates/oscar/dashboard/reports/partials/order_report.html:12
@@ -4508,13 +4508,13 @@ msgstr ""
 #: templates/oscar/checkout/thank_you.html:37
 #: templates/oscar/customer/anon_order.html:32
 msgid "Contact number"
-msgstr ""
+msgstr "Контактный телефон"
 
 #: templates/oscar/checkout/checkout.html:45
 #: templates/oscar/checkout/thank_you.html:41
 #: templates/oscar/customer/anon_order.html:38
 msgid "Shipping notes"
-msgstr ""
+msgstr "Комментарии к доставке"
 
 #: templates/oscar/checkout/checkout.html:58
 msgid "Change shipping address"
@@ -4993,7 +4993,7 @@ msgstr ""
 #: templates/oscar/dashboard/users/index.html:87
 #: templates/oscar/dashboard/vouchers/voucher_detail.html:79
 msgid "View"
-msgstr ""
+msgstr "Просмотреть"
 
 #: templates/oscar/customer/login_registration.html:6
 #: templates/oscar/customer/login_registration.html:15
@@ -5397,7 +5397,7 @@ msgstr "Всего позиций"
 #: templates/oscar/dashboard/index.html:94
 #: templates/oscar/dashboard/orders/statistics.html:54
 msgid "Total revenue"
-msgstr ""
+msgstr "Всего на сумму"
 
 #: templates/oscar/dashboard/index.html:76
 msgid "Average order costs"
@@ -5619,7 +5619,7 @@ msgstr ""
 #: templates/oscar/dashboard/promotions/pagepromotion_list.html:46
 #: templates/oscar/dashboard/promotions/promotion_list.html:48
 msgid "Actions"
-msgstr ""
+msgstr "Действия"
 
 #: templates/oscar/dashboard/catalogue/product_update.html:35
 #, fuzzy
@@ -6047,12 +6047,12 @@ msgstr ""
 #: templates/oscar/dashboard/orders/order_list.html:17
 #: templates/oscar/dashboard/orders/order_list.html:23
 msgid "Order management"
-msgstr ""
+msgstr "Менеджер заказов"
 
 #: templates/oscar/dashboard/orders/order_list.html:51
 #: templates/oscar/dashboard/orders/order_list.html:57
 msgid "Advanced Search"
-msgstr ""
+msgstr "Расширенный поиск"
 
 #: templates/oscar/dashboard/orders/order_list.html:65
 #, fuzzy
@@ -6061,11 +6061,11 @@ msgstr "Закрыт"
 
 #: templates/oscar/dashboard/orders/order_list.html:83
 msgid "Download selected orders as a CSV"
-msgstr ""
+msgstr "Загрузить выбранные заказы в CSV формате"
 
 #: templates/oscar/dashboard/orders/order_list.html:93
 msgid "Select all"
-msgstr ""
+msgstr "Выбрать все"
 
 #: templates/oscar/dashboard/orders/order_list.html:100
 msgid "Customer"
@@ -6140,11 +6140,11 @@ msgstr ""
 
 #: templates/oscar/dashboard/pages/index.html:23
 msgid "Page Management"
-msgstr ""
+msgstr "Менеджер страниц"
 
 #: templates/oscar/dashboard/pages/index.html:43
 msgid "Create page"
-msgstr ""
+msgstr "Создать страницу"
 
 #: templates/oscar/dashboard/pages/index.html:91
 msgid "No pages found."
@@ -6552,7 +6552,7 @@ msgstr ""
 
 #: templates/oscar/dashboard/users/detail.html:104
 msgid "Order Number"
-msgstr ""
+msgstr "Номер заказа"
 
 #: templates/oscar/dashboard/users/detail.html:106
 msgid "Total value"
@@ -6726,7 +6726,7 @@ msgstr ""
 #: templates/oscar/partials/footer.html:5
 #: templates/oscar/partials/nav_menu.html:10
 msgid "About"
-msgstr ""
+msgstr "О нас"
 
 #: templates/oscar/partials/footer.html:6
 msgid "Top of the page"
@@ -6779,12 +6779,12 @@ msgstr "На главную!"
 #: templates/oscar/partials/nav_menu.html:8
 #, fuzzy
 msgid "Payment/delivery"
-msgstr "Оплата"
+msgstr "Оплата и доставка"
 
 #: templates/oscar/partials/nav_menu.html:12
 #, fuzzy
 msgid "Contacts"
-msgstr "Содержание"
+msgstr "Контакты"
 
 #: templates/oscar/partials/pagination.html:8
 msgid "previous"

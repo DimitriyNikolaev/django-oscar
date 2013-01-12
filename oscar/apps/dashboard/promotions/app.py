@@ -11,7 +11,7 @@ node = Node(_('Content'))
 node.add_child(Node(_('Re-usable content blocks'), 'dashboard:promotion-list'))
 node.add_child(Node(_('Content blocks by page'), 'dashboard:promotion-list-by-page'))
 node.add_child(Node(_('Pages'), 'dashboard:page-list'))
-register(node, 20)
+#register(node, 20)
 
 
 class PromotionsDashboardApplication(Application):

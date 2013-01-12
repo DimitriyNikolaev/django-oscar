@@ -8,7 +8,7 @@ from oscar.apps.dashboard.nav import register, Node
 
 node = Node(_('Communications'))
 node.add_child(Node(_('Emails'), 'dashboard:comms-list'))
-register(node, 35)
+#register(node, 35)
 
 
 class CommsDashboardApplication(Application):

@@ -1,15 +1,16 @@
 {% extends 'layout.html' %}
 
-{% block content %}
 
+{% block layout %}
+{% include "partials/nav_accounts.html" %}
 <h1>Dashboard access</h1>
 
-<form action="." method="post">
+{% comment %}<form action="." method="post">
 	<p>Let us know your email address and we'll create a dashboard user for you and email you
 	the details.</p>
 	{% csrf_token %}
 	{% include 'partials/form_fields.html' with form=form %}
 	<button type="submit" class="btn btn-large btn-primary">Send email</button>
-</form>
+</form>{% endcomment %}
 
 {% endblock %}

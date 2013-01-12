@@ -7,7 +7,7 @@ from oscar.apps.dashboard.offers import views
 from oscar.apps.dashboard.nav import register, Node
 
 node = Node(_('Offers'), 'dashboard:offer-list')
-register(node, 50)
+#register(node, 50)
 
 
 class OffersDashboardApplication(Application):

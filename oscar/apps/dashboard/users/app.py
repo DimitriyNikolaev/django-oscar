@@ -9,7 +9,7 @@ from oscar.apps.dashboard.nav import register, Node
 node = Node(_('Customers'))
 node.add_child(Node(_('Customers'), 'dashboard:users-index'))
 node.add_child(Node(_('Alerts'), 'dashboard:user-alert-list'))
-register(node, 30)
+#register(node, 30)
 
 
 class UserManagementApplication(Application):

@@ -284,14 +284,14 @@ from oscar.defaults import *
 
 OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
 OSCAR_ALLOW_ANON_CHECKOUT = True
-OSCAR_INITIAL_ORDER_STATUS = u'Принят'
-OSCAR_INITIAL_LINE_STATUS = u'Принят'
+OSCAR_INITIAL_ORDER_STATUS = 'Принят'
+OSCAR_INITIAL_LINE_STATUS = 'Принят'
 OSCAR_ORDER_STATUS_PIPELINE = {
-    u'Принят': (u'Обрабатывается', u'Отменен',),
-    u'Обрабатывается': (u'Обработан', u'Отменен',),
-    u'Обработан':(u'Выполнен', u'Отменен',),
-    u'Выполнен':(),
-    u'Отменен': (),
+    'Принят': ('Обрабатывается', 'Отменен',),
+    'Обрабатывается': ('Обработан', 'Отменен',),
+    'Обработан':('Исполнен','Отменен',),
+    'Исполнен':(),
+    'Отменен': (),
     }
 
 OSCAR_SHOP_NAME = 'Oscar Sandbox'
