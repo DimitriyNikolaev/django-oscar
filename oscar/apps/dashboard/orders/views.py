@@ -210,6 +210,7 @@ class OrderListView(ListView, BulkEditMixin):
         ctx = super(OrderListView, self).get_context_data(**kwargs)
         ctx['queryset_description'] = self.description
         ctx['form'] = self.form
+        #ctx['active_status'] = 'new'
         return ctx
 
     def is_csv_download(self):

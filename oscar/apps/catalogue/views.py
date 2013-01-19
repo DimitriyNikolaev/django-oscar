@@ -99,7 +99,7 @@ def get_product_base_queryset():
         'product_class__options',
         'stockrecord',
         'images',
-    ).all()
+    ).filter(is_displayed=True)
 
 
 class ProductCategoryView(ListView):
@@ -134,7 +134,7 @@ class ProductCategoryView(ListView):
 
     def get_queryset(self):
         return get_product_base_queryset().filter(
-            categories__in=self.get_categories()
+            categories__in=self.get_categories(), is_displayed=True
         ).distinct()
 
 
@@ -157,7 +157,7 @@ class ProductListView(ListView):
         if q:
             # Send signal to record the view of this product
             self.search_signal.send(sender=self, query=q, user=self.request.user)
-            return get_product_base_queryset().filter(title__icontains=q)
+            return get_product_base_queryset().filter(title__icontains=q, is_displayed=True)
         else:
             return get_product_base_queryset()
 

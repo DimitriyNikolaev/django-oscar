@@ -4371,7 +4371,7 @@ msgstr "Ваша корзина пуста"
 #: templates/oscar/basket/partials/basket_content.html:221
 #: templates/oscar/checkout/thank_you.html:157
 msgid "Continue shopping"
-msgstr ""
+msgstr "За покупки"
 
 #: templates/oscar/basket/partials/basket_quick.html:24
 msgid "Qty"

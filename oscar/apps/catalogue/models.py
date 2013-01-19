@@ -3,19 +3,21 @@ Vanilla product models
 """
 from oscar.apps.catalogue.abstract_models import *
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 class ProductClass(AbstractProductClass):
     pass
 
 
 class Category(AbstractCategory):
-    displayname = models.CharField('DisplayName', max_length=255, db_index=True)
+    displayname = models.CharField(_('DisplayName'), max_length=255, db_index=True)
 
 class ProductCategory(AbstractProductCategory):
     pass
 
 
 class Product(AbstractProduct):
+    is_displayed = models.BooleanField(_("Is_Displayed"), default=True)
     pass
 
 
