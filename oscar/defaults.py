@@ -8,6 +8,7 @@ OSCAR_BASKET_COOKIE_SAVED = 'oscar_saved_basket'
 
 # Currency
 OSCAR_DEFAULT_CURRENCY = 'RUB'
+OSCAR_CURRENCY_LOCALE = 'ru_RU'
 
 # Max number of products to keep on the user's history
 OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
@@ -57,7 +58,7 @@ OSCAR_EAGER_ALERTS = True
 
 # Registration
 OSCAR_SEND_REGISTRATION_EMAIL = False
-OSCAR_FROM_EMAIL = 'constructor3@yandex.ru'
+OSCAR_FROM_EMAIL = 'admin@evesdream.ru'
 
 # Offers
 OSCAR_OFFER_BLACKLIST_PRODUCT = None

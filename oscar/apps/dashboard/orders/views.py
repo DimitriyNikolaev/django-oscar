@@ -372,15 +372,24 @@ class OrderDetailView(DetailView):
         if not new_status in order.available_statuses():
             messages.error(request, _("The new status '%s' is not valid for this order") % new_status)
             return self.reload_page_response()
-
+        old_status = order.status
         handler = EventHandler()
         try:
             handler.handle_order_status_change(order, new_status)
+            #status ligic
+            cancel_status = getattr(settings, 'OSCAR_CANCEL_ORDER_STATUS ', False)
+            success_status = getattr(settings, 'OSCAR_SUCCESS_ORDER_STATUS', False)
+            lines = order.lines.all()
+            quantities = [int(line.quantity) for line in lines]
+            if new_status == cancel_status:
+                handler.cancel_stock_allocations(order,lines, quantities)
+            elif new_status == success_status:
+                handler.consume_stock_allocations(order,lines, quantities)
         except PaymentError, e:
             messages.error(request, _("Unable to change order status due to payment error: %s") % e)
         else:
             msg = _("Order status changed from '%(old_status)s' to '%(new_status)s'") % {
-                'old_status': order.status,
+                'old_status': old_status,
                 'new_status': new_status}
             messages.info(request, msg)
             order.notes.create(user=request.user, message=msg,

@@ -16,10 +16,14 @@ SQL_DEBUG = True
 SEND_BROKEN_LINK_EMAILS = True
 
 ADMINS = (
-    ('David Winterbottom', 'david.winterbottom@tangentlabs.co.uk'),
+    ('Nikolaev Dimitriy', 'constructor3@yandex.ru'),
     )
 EMAIL_SUBJECT_PREFIX = '[Oscar sandbox] '
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_HOST ='smtp.fullspace.ru'
+#EMAIL_HOST_USER = 'admin@evesdream.ru'
+#EMAIL_HOST_PASSWORD = 'sps67j7k'
+
 
 MANAGERS = ADMINS
 
@@ -39,7 +43,7 @@ DATABASES = {
         'NAME': 'etoys',
         'USER': 'webuser',
         'PASSWORD': 'sps67',
-        'HOST': '127.0.0.1',
+        'HOST': 'localhost',
         'PORT': '',
         }
 }
@@ -284,14 +288,16 @@ from oscar.defaults import *
 
 OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
 OSCAR_ALLOW_ANON_CHECKOUT = True
-OSCAR_INITIAL_ORDER_STATUS = 'Принят'
-OSCAR_INITIAL_LINE_STATUS = 'Принят'
+OSCAR_INITIAL_ORDER_STATUS = u'Принят'
+OSCAR_CANCEL_ORDER_STATUS = u'Отмеен'
+OSCAR_SUCCESS_ORDER_STATUS = u'Исполнен'
+OSCAR_INITIAL_LINE_STATUS = u'Принят'
 OSCAR_ORDER_STATUS_PIPELINE = {
-    'Принят': ('Обрабатывается', 'Отменен',),
-    'Обрабатывается': ('Обработан', 'Отменен',),
-    'Обработан':('Исполнен','Отменен',),
-    'Исполнен':(),
-    'Отменен': (),
+    u'Принят': (u'Обрабатывается', u'Отменен',),
+    u'Обрабатывается': (u'Обработан', u'Отменен',),
+    u'Обработан':(u'Исполнен',u'Отменен',),
+    u'Исполнен':(),
+    u'Отменен': (),
     }
 
 OSCAR_SHOP_NAME = 'Oscar Sandbox'

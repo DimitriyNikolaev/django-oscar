@@ -52,12 +52,29 @@
         <th>{% trans "Date of purchase" %}</th>
         <th>{% trans "Time of purchase" %}</th>
         <th>{% trans "Status" %}</th>
+        <th>{% trans "Action" %}</th>
     </tr>
     <tr>
+        <form action="." method="post" class="pull-left">
+            {% csrf_token %}
         <td>{{ order.total_incl_tax|currency }}</td>
         <td>{{ order.date_placed|date:"d/m/y" }}</td>
         <td>{{ order.date_placed|date:"H:s" }}</td>
-        <td>{{ order.status|default:"N/A" }}</td>
+        <td>
+            <select name="new_status" class="gridselect">
+                {% comment %}<option value=""> -- {% trans "choose new status" %} -- </option>{% endcomment %}
+            <option selected="">{{ order.status|default:"N/A" }}</option>
+                {% for status in order_statuses %}
+                    <option>{{ status }}</option>
+                {% endfor %}
+            </select>
+            {% comment %}{{ order.status|default:"N/A" }}{% endcomment %}
+        </td>
+        <td>
+            <input type="hidden" name="order_action" value="change_order_Status" />
+            <input type="submit" value="{% trans "Save"%}" class="btn btn-danger" />
+        </td>
+        </form>
     </tr>
 </table>  
 
@@ -76,7 +93,7 @@
         <li class="{% if active_tab == 'shipping' %}active{% endif %}"><a href="#shipping" data-toggle="tab">{% trans "Shipping" %}</a></li>
         {% comment %}<li class="{% if active_tab == 'payment' %}active{% endif %}"><a href="#payment" data-toggle="tab">{% trans "Payment" %}</a></li>{% endcomment %}
         {% comment %}<li class="{% if active_tab == 'discounts' %}active{% endif %}"><a href="#discounts" data-toggle="tab">{% trans "Discounts" %}</a></li>{% endcomment %}
-        <li class="{% if active_tab == 'emails' %}active{% endif %}"><a href="#emails" data-toggle="tab">{% trans "Contacts" %}</a></li>
+        <li class="{% if active_tab == 'emails' %}active{% endif %}"><a href="#emails" data-toggle="tab">{% trans "Contact info" %}</a></li>
         <li class="{% if active_tab == 'notes' %}active{% endif %}"><a href="#notes" data-toggle="tab">{% trans "Notes" %}</a></li>
         {% endblock nav_tabs %}
     </ul>
@@ -86,12 +103,12 @@
 			<div class="table-header">
 				<h3>{% trans "Items ordered" %}</h3>
 			</div>
-			<form action="." method="post" class="form-inline">
-				{% csrf_token %}
+			{% comment %}<form action="." method="post" class="form-inline">
+				{% csrf_token %}{% endcomment %}
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>{% trans "Select" %}</th>
+							{% comment %}<th>{% trans "Select" %}</th>{% endcomment %}
 							<th>{% trans "Quantity" %}</th>
 							<th>{% trans "Product" %}</th>
 							<th>{% trans "UPC" %}</th>
@@ -106,10 +123,10 @@
 					<tbody>
 						{% for line in order.lines.all %}
 						<tr>
-							<td>
+							{% comment %}<td>
 								<input type="checkbox" name="selected_line" value="{{ line.id }}" />
 								<input type="text" name="selected_line_qty" value="{{ line.quantity }}" class="span1" size="2" />
-							</td>
+							</td>{% endcomment %}
 							<td>{{ line.quantity }}</td>
 							<td>{{ line.title }}</td>
 							<td>{{ line.upc|default:"-" }}</td>
@@ -144,7 +161,7 @@
 					</tbody>
 				</table>
 
-				{% block line_actions %}
+				{% comment %}{% block line_actions %}
                 <div class="well">
     				<h3><i class="icon-refresh"></i> With selected lines:</h3>
 
@@ -202,7 +219,7 @@
 					<input type="submit" value="{% trans "Go!" %}" class="btn btn-primary" />
     			</form>
 			</div>
-			{% endblock line_actions %}
+			{% endblock line_actions %}{% endcomment %}
 
 			{% comment %}<div class="table-header">
 				<h3>{% trans "Shipping Events" %}</h3>
@@ -281,8 +298,8 @@
                     </tbody>
     			{% endif %}
     			{% endwith %}
-			</table>
-		</div>{% endcomment %}
+			</table>{% endcomment %}
+		</div>
 
 		<div class="tab-pane {% if active_tab == 'shipping' %}active{% endif %}" id="shipping">
 			{% block tab_shipping %}
