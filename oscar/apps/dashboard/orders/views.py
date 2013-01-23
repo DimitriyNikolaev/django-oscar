@@ -290,6 +290,7 @@ class OrderDetailView(DetailView):
         ctx['line_statuses'] = Line.all_statuses()
         ctx['shipping_event_types'] = ShippingEventType.objects.all()
         ctx['payment_event_types'] = PaymentEventType.objects.all()
+        ctx['order_statuses'] = self.object.available_statuses()
         return ctx
 
     def get_order_note_form(self):

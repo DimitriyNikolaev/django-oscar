@@ -19,10 +19,10 @@ ADMINS = (
     ('Nikolaev Dimitriy', 'constructor3@yandex.ru'),
     )
 EMAIL_SUBJECT_PREFIX = '[Oscar sandbox] '
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-#EMAIL_HOST ='smtp.fullspace.ru'
-#EMAIL_HOST_USER = 'admin@evesdream.ru'
-#EMAIL_HOST_PASSWORD = 'sps67j7k'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST ='smtp.fullspace.ru'
+EMAIL_HOST_USER = 'admin@evesdream.ru'
+EMAIL_HOST_PASSWORD = 'sps67j7k'
 
 
 MANAGERS = ADMINS
@@ -47,6 +47,16 @@ DATABASES = {
         'PORT': '',
         }
 }
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'evesdrearu_etoys',
+#        'USER': 'evesdrearu_etoys',
+#        'PASSWORD': 'sps67j7k',
+#        'HOST': 'localhost',
+#        'PORT': '',
+#        }
+#}
 
 CACHES = {
     'default': {
@@ -300,8 +310,8 @@ OSCAR_ORDER_STATUS_PIPELINE = {
     u'Отменен': (),
     }
 
-OSCAR_SHOP_NAME = 'Oscar Sandbox'
-OSCAR_SHOP_TAGLINE = 'e-Commerce for Django'
+OSCAR_SHOP_NAME = 'EToys.Spb'
+OSCAR_SHOP_TAGLINE = ''
 
 GOOGLE_ANALYTICS_ID = 'UA-XXXXX-Y'
 
