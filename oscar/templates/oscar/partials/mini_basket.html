@@ -3,7 +3,7 @@
 
 <ul class="cart span5 hidden-phone">
     <li>
-        <div class="btn-group">
+        <div class="btn-group pull-right-control">
             <a class="btn" href="{% url basket:summary %}"><strong>{% trans "Basket total:" %} <span>{{ request.basket.total_incl_tax|currency }}</span></strong>{% comment%} {% trans "View Basket" %}{% endcomment %}</a>
             <button class="btn dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>

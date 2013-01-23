@@ -4,12 +4,16 @@
 {% block layout %}
     {# Top-horizontal bar with account, notifictions, dashboard links #}
     {% comment %}{% include "partials/nav_accounts.html" %}{% endcomment %}
-    <div class="nav pull-right search-control">
-        {% include "partials/search.html" %}
-    </div>
+    {% comment %}<div class="nav pull-right search-control">
+
+    </div>{% endcomment %}
     {# Site logo/title, mini-basket, browse dropdown and searchbox #}
-    <header class="header container-fluid">
+    <header class="header container-fluid headerbackground">
         <div class="page_inner">
+
+            <div class="row-fluid nav pull-right headerrow ">
+                {% include "partials/search.html" %}
+            </div>
             <div class="row-fluid">
                 {% include "partials/brand.html" %}
                     {# Mini-basket wrapped in a block so some templates can now display it #}

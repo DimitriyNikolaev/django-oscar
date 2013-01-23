@@ -720,7 +720,7 @@ msgid "Your basket now qualifies for the '%s' offer"
 msgstr ""
 
 #: apps/basket/views.py:49
-#, fuzzy, python-format
+#,python-format
 msgid "Basket total now %(total)s"
 msgstr "Сумма корзины %(total)s"
 
@@ -4361,7 +4361,7 @@ msgstr "Ваша корзина пуста"
 #: templates/oscar/basket/partials/basket_content.html:220
 #: templates/oscar/checkout/thank_you.html:157
 msgid "Continue shopping"
-msgstr "За покупки"
+msgstr "За покупками"
 
 #: templates/oscar/basket/partials/basket_quick.html:24
 msgid "Qty"
@@ -4746,12 +4746,17 @@ msgid ""
 "\t\tConfirmation for order #%(order_num)s\n"
 "\t\t"
 msgstr ""
+"\n"
+"\t\tПодтверждение принятия заказа #%(order_num)s\n"
+"\t\t"
 
 #: templates/oscar/checkout/thank_you.html:19
 msgid ""
 "Your order has been placed and a confirmation email has ben sent - your "
 "order number is"
 msgstr ""
+"Заказ принят и на указанный вами email отправлено письмо с подтверждением - "
+"номер вашего заказа"
 
 #: templates/oscar/checkout/thank_you.html:21
 msgid ""
@@ -4789,7 +4794,7 @@ msgstr ""
 
 #: templates/oscar/checkout/thank_you.html:156
 msgid "Print this page"
-msgstr ""
+msgstr "Напечатать страницу"
 
 #: templates/oscar/checkout/user_address_delete.html:19
 #: templates/oscar/customer/address_delete.html:48
