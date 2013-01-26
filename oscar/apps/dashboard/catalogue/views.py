@@ -350,7 +350,7 @@ class CategoryUpdateView(CategoryListMixin, generic.UpdateView):
 
     def get_context_data(self, **kwargs):
         ctx = super(CategoryUpdateView, self).get_context_data(**kwargs)
-        ctx['title'] = "Update category '%s'" % self.object.name
+        ctx['title'] = _("Update category '%s'") % self.object.name
         return ctx
 
     def get_success_url(self):

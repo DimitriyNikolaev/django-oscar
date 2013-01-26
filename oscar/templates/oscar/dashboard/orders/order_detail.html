@@ -113,11 +113,11 @@
 							<th>{% trans "Product" %}</th>
 							<th>{% trans "UPC" %}</th>
 							<th>{% trans "Status" %}</th>
-							<th>{% trans "Supplier" %}</th>
+							{% comment %}<th>{% trans "Supplier" %}</th>
 							<th>{% trans "Supplier SKU" %}</th>
-							<th>{% trans "Est. delivery date" %}</th>
+							<th>{% trans "Est. delivery date" %}</th>{% endcomment %}
 							<th>{% trans "Price (before discounts)" %}</th>
-							<th>{% trans "Actions" %}</th>
+							{% comment %}<th>{% trans "Actions" %}</th>{% endcomment %}
 						</tr>
 					</thead>
 					<tbody>
@@ -131,29 +131,29 @@
 							<td>{{ line.title }}</td>
 							<td>{{ line.upc|default:"-" }}</td>
 							<td>{{ line.status|default:"-" }}</td>
-							<td>{{ line.partner_name }}</td>
+							{% comment %}<td>{{ line.partner_name }}</td>
 							<td>{{ line.partner_sku }}</td>
-							<td>{{ line.est_dispatch_date|default:"-" }}</td>
+							<td>{{ line.est_dispatch_date|default:"-" }}</td>{% endcomment %}
 							<td>{{ line.line_price_before_discounts_incl_tax|currency }}</td>
-							<td>
+							{% comment %}<td>
 								<a href="{% url dashboard:order-line-detail order.number line.id %}" class="btn btn-info">{% trans "View" %}</a>
-							</td>
+							</td>{% endcomment %}
 						</tr>
 						{% endfor %}
 						<tr>
-							<td colspan="7"></td>
+							<td colspan="3"></td>
 							<th>{% trans "Discount" %}</th>
 							<td>{{ order.total_discount_incl_tax|currency }}</td>
 							<td></td>
 						</tr>
 						<tr>
-							<td colspan="7"></td>
+							<td colspan="3"></td>
 							<th>{% trans "Shipping charge" %}</th>
 							<td>{{ order.shipping_incl_tax|currency }}</td>
 							<td></td>
 						</tr>
 						<tr>
-							<td colspan="7"></td>
+							<td colspan="3"></td>
 							<th>{% trans "Total" %}</th>
 							<td>{{ order.total_incl_tax|currency }}</td>
 							<td></td>
@@ -493,7 +493,7 @@
 				{% include "partials/form_fields.html" with form=note_form %}
 				<!-- {{ note_form.as_p }} -->
 				<div class="form-actions">
-					<input type="submit" value="Save note" class="btn btn-primary" />
+					<input type="submit" value="{% trans "Save note" %}" class="btn btn-primary" />
 					{% trans "Notes are only editable for 5 minutes after being saved." %}
 				</div>
 			</form>

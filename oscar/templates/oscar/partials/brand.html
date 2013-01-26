@@ -1,9 +1,11 @@
-<div class="span7">
-    <a href="{% url promotions:home %}">
+<div class="span9">
+    {% comment %}<a href="{% url promotions:home %}">
         {% block brand_title %}
-            {% comment %}{{ shop_name }}
-            <small> {{ shop_tagline }}</small>{% endcomment %}
-
+            {% endcomment %}{% comment %}{{ shop_name }}
+            <small> {{ shop_tagline }}</small>{% endcomment %}{% comment %}
+           Etoys.Spb
         {% endblock %}
-    </a>
+    </a>{% endcomment %}
+
+    <span class="pull-right phone">тел: +7(812)-333-43-34</span>
 </div>
