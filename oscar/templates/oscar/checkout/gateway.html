@@ -21,7 +21,7 @@
 	{{ form.non_field_errors }}
 	
 	<div class="control-group {% for error in form.username.errors %}error{% endfor %}">
-		<label for="id_username" class="control-label {% if form.username.field.required %}required{% endif %}">Your email address{% if form.username.field.required %} <span>*</span>{% endif %}</label>
+		<label for="id_username" class="control-label {% if form.username.field.required %}required{% endif %}">{% trans "Your email address" %}{% if form.username.field.required %} <span>*</span>{% endif %}</label>
 		<div class="controls">
 		    {{ form.username }}
 		    {% for error in form.username.errors %}

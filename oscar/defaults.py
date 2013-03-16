@@ -58,7 +58,7 @@ OSCAR_EAGER_ALERTS = True
 
 # Registration
 OSCAR_SEND_REGISTRATION_EMAIL = False
-OSCAR_FROM_EMAIL = 'admin@evesdream.ru'
+OSCAR_FROM_EMAIL = 'order@etoys.spb.ru'
 
 # Offers
 OSCAR_OFFER_BLACKLIST_PRODUCT = None

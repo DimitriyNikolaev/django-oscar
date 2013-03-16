@@ -50,6 +50,7 @@ class GatewayView(generic.FormView):
             'email': user.email,
             'password': password
         }))
+        logger.info(msg)
         send_mail(u'Доступ в админку',
             msg, OSCAR_FROM_EMAIL,
             [real_email])

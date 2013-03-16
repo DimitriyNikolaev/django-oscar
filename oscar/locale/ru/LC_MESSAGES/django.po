@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-24 04:07+0400\n"
+"POT-Creation-Date: 2013-02-13 03:07+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -483,7 +483,6 @@ msgstr "Статус"
 #: apps/basket/abstract_models.py:40 apps/dashboard/vouchers/app.py:9
 #: apps/voucher/abstract_models.py:55
 #: templates/oscar/basket/partials/basket_content.html:129
-#: templates/oscar/dashboard/index.html:160
 #: templates/oscar/dashboard/vouchers/voucher_delete.html:20
 #: templates/oscar/dashboard/vouchers/voucher_detail.html:16
 #: templates/oscar/dashboard/vouchers/voucher_form.html:9
@@ -1544,8 +1543,6 @@ msgid "Not yet confirmed"
 msgstr ""
 
 #: apps/customer/abstract_models.py:206
-#: templates/oscar/dashboard/index.html:156
-#: templates/oscar/dashboard/index.html:160
 msgid "Active"
 msgstr ""
 
@@ -1642,7 +1639,7 @@ msgstr "Адрес электронной почты"
 
 #: apps/customer/forms.py:300
 msgid "Send notification to"
-msgstr ""
+msgstr "Послать оповещение на адрес"
 
 #: apps/customer/forms.py:302
 msgid "Enter your email"
@@ -1913,7 +1910,6 @@ msgid "A preview email has been sent to %s"
 msgstr ""
 
 #: apps/dashboard/offers/app.py:9 apps/voucher/abstract_models.py:26
-#: templates/oscar/dashboard/index.html:156
 #: templates/oscar/dashboard/offers/offer_delete.html:20
 #: templates/oscar/dashboard/offers/offer_detail.html:18
 #: templates/oscar/dashboard/offers/step_form.html:18
@@ -3169,7 +3165,7 @@ msgstr ""
 msgid "Offer performance"
 msgstr ""
 
-#: apps/order/abstract_models.py:23 templates/oscar/dashboard/index.html:156
+#: apps/order/abstract_models.py:23
 msgid "Site"
 msgstr ""
 
@@ -3874,7 +3870,7 @@ msgstr ""
 msgid "Promotion"
 msgstr ""
 
-#: apps/promotions/models.py:96 templates/oscar/dashboard/index.html:163
+#: apps/promotions/models.py:96
 msgid "Promotions"
 msgstr ""
 
@@ -4436,7 +4432,6 @@ msgid "Product Description"
 msgstr "Описание товара"
 
 #: templates/oscar/catalogue/detail.html:86
-#, fuzzy
 msgid "Product Information"
 msgstr "Информация о товаре"
 
@@ -4471,12 +4466,12 @@ msgstr ""
 
 #: templates/oscar/catalogue/partials/add_to_basket_form.html:19
 msgid "You can get an email alert when this product is back in stock."
-msgstr ""
+msgstr "Вы можете получить оповещение о поступлении товара по email"
 
 #: templates/oscar/catalogue/partials/add_to_basket_form.html:21
 #: templates/oscar/promotions/singleproduct.html:44
 msgid "Notify me"
-msgstr ""
+msgstr "Собщить мне"
 
 #: templates/oscar/catalogue/partials/gallery.html:11
 msgid "Previous Image"
@@ -4580,7 +4575,12 @@ msgstr ""
 
 #: templates/oscar/checkout/gateway.html:16
 msgid "Who are you?"
-msgstr ""
+msgstr "Кто вы?"
+
+#: templates/oscar/checkout/gateway.html:24
+
+msgid "Your email address"
+msgstr "Ваш email"
 
 #: templates/oscar/checkout/gateway.html:69
 #: templates/oscar/checkout/payment_details.html:35
@@ -4616,7 +4616,7 @@ msgstr ""
 
 #: templates/oscar/checkout/preview.html:17
 msgid "Submitting..."
-msgstr ""
+msgstr "Размещение..."
 
 #: templates/oscar/checkout/preview.html:17
 msgid "Place order"
@@ -4986,20 +4986,6 @@ msgstr "Вход"
 msgid "I've forgotten my password"
 msgstr ""
 
-#: templates/oscar/customer/login_registration.html:33
-#: templates/oscar/customer/login_registration.html:36
-#: templates/oscar/customer/registration.html:5
-#: templates/oscar/customer/registration.html:14
-#: templates/oscar/customer/registration.html:23
-#: templates/oscar/customer/registration.html:26
-msgid "Register"
-msgstr "Регистрация"
-
-#: templates/oscar/customer/login_registration.html:36
-#: templates/oscar/customer/registration.html:26
-msgid "Registering..."
-msgstr ""
-
 #: templates/oscar/customer/order.html:22
 #: templates/oscar/customer/order_list.html:17
 #: templates/oscar/customer/order_list.html:22
@@ -5137,6 +5123,17 @@ msgstr "Отмена"
 #, fuzzy
 msgid "Edit profiles"
 msgstr "Редактировать адрес"
+
+#: templates/oscar/customer/registration.html:5
+#: templates/oscar/customer/registration.html:14
+#: templates/oscar/customer/registration.html:23
+#: templates/oscar/customer/registration.html:26
+msgid "Register"
+msgstr "Регистрация"
+
+#: templates/oscar/customer/registration.html:26
+msgid "Registering..."
+msgstr ""
 
 #: templates/oscar/customer/alerts/message.html:2
 #, python-format
@@ -5328,32 +5325,26 @@ msgid "Your Store Statistics"
 msgstr "Статистика магазина"
 
 #: templates/oscar/dashboard/index.html:27
-
 msgid "Total Orders"
 msgstr "Всего заказов"
 
 #: templates/oscar/dashboard/index.html:28
-
 msgid "New Customers"
 msgstr "Новые клиенты"
 
 #: templates/oscar/dashboard/index.html:29
-
 msgid "Total Customers"
 msgstr "Всего клиентов"
 
 #: templates/oscar/dashboard/index.html:30
-
 msgid "Total Products"
 msgstr "Всего товаров"
 
 #: templates/oscar/dashboard/index.html:34
-
 msgid "Latest Orders (last 24 hours)"
 msgstr "Последние заказы (за 24 часа)"
 
 #: templates/oscar/dashboard/index.html:61
-
 msgid "Orders - Last 24 Hours"
 msgstr "Заказы - Последние 24 часа"
 
@@ -5380,7 +5371,6 @@ msgid "Average order costs"
 msgstr "Средний чек заказа"
 
 #: templates/oscar/dashboard/index.html:84
-
 msgid "Orders - All Time"
 msgstr "Заказы - Все время"
 
@@ -5429,10 +5419,6 @@ msgstr "Всего товаров"
 #: templates/oscar/dashboard/index.html:146
 msgid "stock alerts"
 msgstr "сообщения склада"
-
-#: templates/oscar/dashboard/index.html:154
-msgid "Offers, vouchers and promotions"
-msgstr ""
 
 #: templates/oscar/dashboard/layout.html:13
 #: templates/oscar/dashboard/layout.html:87
@@ -5600,7 +5586,6 @@ msgid "Number allocated"
 msgstr "Зарезервировано"
 
 #: templates/oscar/dashboard/catalogue/product_update.html:35
-
 msgid "Product Details"
 msgstr "Детальная информация"
 

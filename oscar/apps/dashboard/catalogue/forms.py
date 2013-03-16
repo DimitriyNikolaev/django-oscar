@@ -176,7 +176,7 @@ class ProductForm(forms.ModelForm):
         model = Product
         exclude = ('slug', 'status', 'score', 'product_class',
                    'recommended_products', 'related_products',
-                   'product_options', 'attributes', 'categories')
+                   'product_options', 'attributes', 'categories', 'parent')
 
     def save(self):
         object = super(ProductForm, self).save(False)

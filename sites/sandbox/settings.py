@@ -16,13 +16,13 @@ SQL_DEBUG = True
 SEND_BROKEN_LINK_EMAILS = True
 
 ADMINS = (
-    ('Nikolaev Dimitriy', 'constructor3@yandex.ru'),
+    ('Zhirov Valery', 'Valeron-best@mail.ru'),
     )
-EMAIL_SUBJECT_PREFIX = '[Oscar sandbox] '
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST ='smtp.fullspace.ru'
-EMAIL_HOST_USER = 'admin@evesdream.ru'
-EMAIL_HOST_PASSWORD = 'sps67j7k'
+EMAIL_SUBJECT_PREFIX = 'Etoys.Spb'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_HOST ='smtp.fullspace.ru'
+# EMAIL_HOST_USER = 'order@etoys.spb.ru'
+# EMAIL_HOST_PASSWORD = 'kj8l1zq'
 
 
 MANAGERS = ADMINS
@@ -37,6 +37,17 @@ MANAGERS = ADMINS
 #        'PORT': '',
 #    }
 #}
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'etoysspbru',
+#        'USER': 'etoysspbru',
+#        'PASSWORD': 'kj8l1zq',
+#        'HOST': 'localhost',
+#        'PORT': '',
+#        }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -47,16 +58,6 @@ DATABASES = {
         'PORT': '',
         }
 }
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'evesdrearu_etoys',
-#        'USER': 'evesdrearu_etoys',
-#        'PASSWORD': 'sps67j7k',
-#        'HOST': 'localhost',
-#        'PORT': '',
-#        }
-#}
 
 CACHES = {
     'default': {
@@ -99,7 +100,7 @@ USE_L10N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = location("assets/media")
+MEDIA_ROOT = location("assets/media") #'/home/e/etoysspbru/public_html/media'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -113,7 +114,7 @@ MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ()
-STATIC_ROOT = location('public/static')
+STATIC_ROOT = location('public/static') #'/home/e/etoysspbru/public_html/static'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '$)a7n&o80u!6y5t-+jrd3)3!%vh&shg$wqpjpxc!ar&p#!)n1a'

@@ -9,7 +9,7 @@ import os, sys, site
 virtual_env = os.path.expanduser('~/.virtualenvs/etoys')
 activate_this = os.path.join(virtual_env, 'bin/activate_this.py')
 execfile(activate_this, dict(__file__=activate_this))
-sys.path.insert(0, os.path.join(os.path.expanduser('~'),'etoys/public_html/sites/sandbox'))
+sys.path.insert(0, os.path.join(os.path.expanduser('~'),'public_html/sites/sandbox'))
 # подключаем виртуальное окружение проекта
 #site.addsitedir('/home/e/evesdrearu/.virtualenvs/etoys/lib/python2.7/site-packages')
 # указываем через переменную окружения

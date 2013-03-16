@@ -79,7 +79,7 @@ class ProductDetailView(DetailView):
         """
         product = self.get_object()
         names = ['%s/detail-for-upc-%s.html' % (self.template_folder, product.upc),
-                 '%s/detail-for-class-%s.html' % (self.template_folder, product.product_class.name.lower()),
+                 '%s/detail-for-class-%s.html' % (self.template_folder, product.product_class.slug.lower()),
                  '%s/detail.html' % (self.template_folder)]
         return names
 
